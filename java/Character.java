@@ -59,7 +59,7 @@ public class Character extends Fightable {
                         CombatArena.listEnemies();
                         do {
                            enemy = getUserInt();
-                        } while (CombatArena.getEnemy(enemy) != null);
+                        } while (CombatArena.getEnemy(enemy) == null);
                      }
                      else {
                         attack(CombatArena.getEnemy(enemy));
