@@ -27,4 +27,9 @@ public class Room
 	   return this.Description;
    }
    
+   public String getType()
+   {
+	   return this.Type;
+   }
+   
 }

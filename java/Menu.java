@@ -7,7 +7,7 @@ public class Menu
 	//In this method you can test different menus
    public void StartMenu()
    {
-	   //intro();
+	   intro();
 	   //mainMenu();
 	  
    }
