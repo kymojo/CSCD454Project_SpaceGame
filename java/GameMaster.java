@@ -11,7 +11,7 @@ public class GameMaster
 	   //Hero value
 	   
 	   //Test_Hallway();
-	   //Test_Menu();
+	   Test_Menu();
    
    
    

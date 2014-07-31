@@ -12,11 +12,13 @@ public class Room
 	   
    }
 
+   //Make Items for the rooms
    public void MakeItems()
    {
-	   
+	   //Make Items f
    }
    
+   //Make Enemies for the rooms
    public void MakeEnemies()
    {
 	   
@@ -31,5 +33,6 @@ public class Room
    {
 	   return this.Type;
    }
+   
    
 }
