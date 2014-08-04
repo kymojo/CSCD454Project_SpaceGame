@@ -63,6 +63,16 @@ public class CombatArena {
    }
    
    /**
+    * Removes all fighters from the arena.
+    */
+   public static void clearArena() {
+   
+      enemies.clear();
+      player = null;
+      
+   }
+   
+   /**
     * Returns the ArrayList of fighters in the arena
     * 
     * @return     the list of fighters
@@ -87,6 +97,8 @@ public class CombatArena {
          done = checkVictory();
          if (done == 0)
             player.clockTick();
+         else
+            break;
          
          for (Fightable e : enemies) {
          
@@ -117,12 +129,12 @@ public class CombatArena {
       int done = 0;
       
       if (player == null) {
-         System.out.println("The player is dead!\nThe enemy has won the battle!");
+         System.out.println("[FAILURE]   The enemy has won the battle!");
          done = 1;
       }
          
       if (enemies.isEmpty()) {
-         System.out.println("The enemy is dead!\nThe player has won the battle!");
+         System.out.println("[VICTORY]   The player has won the battle!");
          done = 1;
       }
       
@@ -145,7 +157,7 @@ public class CombatArena {
       int i = 1;
       for (Fightable e : enemies) {
          
-         System.out.println(i + ": " + e.getName() );
+         System.out.println(" "+i + ": " + e.getName() );
          i++;
       }
    }

@@ -32,15 +32,15 @@ public class CombatTimer {
       clock--;
       
       if (clock == 0) {
-         System.out.println(fighter.getName()+"'s turn!");
+         System.out.println("[ . . . ]   "+fighter.getName()+"'s turn!");
          clock = fighter.combat();
       }
       
-/*D*/ if (clock < 0) {
-/*D*/    System.out.println(fighter.getName()+"'s timer fell below zero.");
-/*D*/    System.out.println("Removing "+fighter.getName()+" from the arena...");
-/*D*/    CombatArena.removeCombatant(fighter);
-/*D*/ }
+/*D*/// if (clock < 0) {
+/*D*///    System.out.println(fighter.getName()+"'s timer fell below zero.");
+/*D*///    System.out.println("Removing "+fighter.getName()+" from the arena...");
+/*D*///    CombatArena.removeCombatant(fighter);
+/*D*/// }
    }
    
 }

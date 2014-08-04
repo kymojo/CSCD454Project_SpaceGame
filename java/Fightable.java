@@ -38,11 +38,11 @@ public abstract class Fightable {
     */
    public void attack(Fightable enemy) {
       
-      System.out.println(name + " attacks " + enemy.getName() + "!");
+      System.out.println("[ATTACK!]   "+name + " attacks " + enemy.getName() + "!");
       
       int damage = inventory.getWeapon()/* USE A FACADE */.attack();
       if (damage == -1)
-         System.out.println("Attack missed!");
+         System.out.println("[ MISS! ]   Attack missed!");
       else
          enemy.defend(damage);
    }
@@ -58,9 +58,9 @@ public abstract class Fightable {
       
       int dmg = inventory.getArmor()/* USE A FACADE */.damageReduce(damage);
       health -= dmg;
-      System.out.println(name+" takes "+dmg+" damage!!");
+      System.out.println("[DAMAGE!]   "+name+" takes "+dmg+" damage!!");
       if (health <= 0) {
-         System.out.println(name+" died!");
+         System.out.println("[ DEATH ]   "+name+" died!");
          CombatArena.removeCombatant(this);
       }
    }

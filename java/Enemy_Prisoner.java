@@ -4,12 +4,12 @@
  * @author  Kyle Johnson
  */
 
-public class Enemy_Standard extends Enemy {
+public class Enemy_Prisoner extends Enemy {
 
-   public Enemy_Standard() {
+   public Enemy_Prisoner() {
    
-      name = "Standard Enemy";
-      description = "A generic enemy for testing purposes";
+      name = "Prisoner";
+      description = "One of the escaped prisoners.";
       
       healthMax = 10;
       health = healthMax;
@@ -25,6 +25,7 @@ public class Enemy_Standard extends Enemy {
    public int combat() {
    
       int time = 0;
+      
       
       attack(CombatArena.getPlayer());
       time = inventory.getWeapon()/* THIS IS A PROBLEM */.getAttackTime();

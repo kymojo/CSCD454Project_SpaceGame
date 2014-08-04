@@ -17,10 +17,10 @@ public class Character extends Fightable {
     */
    public Character() {
       
-      System.out.println("Input player name: ");
+      System.out.print("[ ? ? ? ]   Input player name:\n > ");
       name = userInput.nextLine();
       
-      healthMax = 10;
+      healthMax = 30;
       health = healthMax;
       
       inventory = new Inventory(this);
@@ -45,52 +45,46 @@ public class Character extends Fightable {
       int time = 0;
       int choice = 0;
       
-      System.out.println("[Menu]\n1. Use Weapon\n2. Swap Weapon\n3. Use Item\n4. Flee");
+      System.out.println("[ ? ? ? ]   Player Action:\n 1. Use Weapon\n 2. Swap Weapon\n 3. Use Item\n 4. Flee");
       
       while(choice == 0) {
       
-         choice = getUserInt();
+         choice = getUserInt(4);
       
          switch (choice) {
             case 1:
                      int enemy = 1;
-                     if (CombatArena.countEnemies() > 1) {
-                        System.out.println("Choose an enemy:");
+                     int enemyCount = CombatArena.countEnemies();
+                     if (enemyCount > 1) {
+                        System.out.println("[ ? ? ? ]   Choose an enemy: ");
                         CombatArena.listEnemies();
                         do {
-                           enemy = getUserInt();
+                           enemy = getUserInt(enemyCount);
                         } while (CombatArena.getEnemy(enemy) == null);
                      }
-                     else {
-                        attack(CombatArena.getEnemy(enemy));
-                        time = inventory.getWeapon()/* USE A FACADE */.getAttackTime();
-                     }
+                     attack(CombatArena.getEnemy(enemy));
+                     time = inventory.getWeapon()/* USE A FACADE */.getAttackTime();
                      break;
             case 2:
                      if (inventory.swapWeapon() == 1) {
-                         System.out.println("No secondary weapon!");
-                         choice = -1;
+                         System.out.println("[ ! ! ! ]   No secondary weapon!");
+                         choice = 0;
                      }
                         else
                            time = speed;
                      break;
             case 3:
-/*D*/                System.out.println("No items!");
-/*D*/                choice = -1;
+/*D*/                System.out.println("[ ! ! ! ]   No items!");
+/*D*/                choice = 0;
                      // Item Stuff
                      // time = characterTime
                      break;
             case 4:
-/*D*/                System.out.println("Unable to escape!");
-/*D*/                choice = -1;
+/*D*/                System.out.println("[ ! ! ! ]   Unable to escape!");
+/*D*/                choice = 0;
                      // Flee
                      // Take penalty
                      // Exit arena
-                     break;
-            default:
-                     if (choice != -1)
-                        System.out.println("Invalid command issued.");
-                     choice = 0;
                      break;
          }
       }
@@ -102,16 +96,21 @@ public class Character extends Fightable {
     *
     * @return     the inputted integer
     */
-   private int getUserInt() {
+   private int getUserInt(int range) {
       
       Integer choice = null;
       
       do {
          try {
+            System.out.print(" > ");
             int cmd = userInput.nextInt();
-            choice = cmd;
+            if (cmd < 1 || cmd > range)
+               System.out.println("[ ! ! ! ]   Invalid number entered.");
+            else
+               choice = cmd;
          } catch (InputMismatchException E) {
-            System.out.println("Please enter a number.");
+            System.out.println("[ ! ! ! ]   Please enter a number.");
+            userInput.next();
          }
       } while (choice == null);
       
