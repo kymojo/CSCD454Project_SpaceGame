@@ -5,7 +5,7 @@ public class Weapon_LaserRifle extends Weapon
    {
       name = "Laser Rifle";
       description = "Am advanced weapon using pure light.";
-      damage = 2 * level;
+      damage = 1.5 * level;
       accuracy = .8 * ((level / 2) + 1);
       attackTime = 5;
    }
