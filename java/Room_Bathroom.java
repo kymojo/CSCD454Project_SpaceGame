@@ -1,8 +1,8 @@
 public class Room_Bathroom extends Room
 {
 	@Override
-	public void MakeDescription()
+	public void MakeDesciption()
 	{
-		 this.Description = "*The Bathrooms*\n----Room Description----";
+		 this.Description = "*The Bathrooms*\n----Room Description----;
 	}
 }

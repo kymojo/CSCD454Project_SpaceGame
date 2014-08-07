@@ -2,14 +2,11 @@ public class FightItem_FragGrenade extends FightItem
 {
    public FightItem_FragGrenade(int level)
    {
-      damage = 10;
-      acuracy = .4;
-      useTime = 4;
+      this.name = "Frag Grenade";
+      this.message = " throws a grenade!";
+      this.damage = 10;
+      this.acuracy = .4;
+      this.uses = 1;
+      this.useTime = 4;
    }
-   
-   public int getTime()
-   {
-      return useTime;
-   }
-   
 }

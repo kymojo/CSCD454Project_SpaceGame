@@ -8,43 +8,43 @@ public class RoomFactory
       
       if(type.equals("Armory"))
       {
-    	  room = new Room_Armory();
+    	  room = new Armory();
       }
       else if(type.equals("Infirmary"))
       {
-    	  room = new Room_Infirmary();
+    	  room = new Infirmary();
       }
       else if(type.equals("Cafeteria"))
       {
-    	  room = new Room_Cafeteria();
+    	  room = new Cafeteria();
       }
       else if(type.equals("Bathroom"))
       {
-    	  room = new Room_Bathroom();
+    	  room = new Bathroom();
       }
       else if(type.equals("GuardsQuarters"))
       {
-    	  room = new Room_GuardsQuarters();
+    	  room = new GuardsQuarters();
       }
       else if(type.equals("HighSecurityCells"))
       {
-    	  room = new Room_HighSecurityCells();
+    	  room = new HighSecurityCells();
       }
       else if(type.equals("CargoHold"))
       {
-    	  room = new Room_CargoHold();
+    	  room = new CargoHold();
       }
       else if(type.equals("Bridge"))
       {
-    	  room = new Room_Bridge();
+    	  room = new Bridge();
       }
       else if(type.equals("DockingBay"))
       {
-    	  room = new Room_DockingBay();
+    	  room = new DockingBay();
       }
-      else if(type.equals("Boss"))
+      else if(type.equals("BossRoom"))
       {
-    	  room = new Room_Boss();
+    	  room = new BossRoom();
       }
       
       return room;

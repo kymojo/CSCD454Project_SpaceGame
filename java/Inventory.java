@@ -82,6 +82,10 @@ public class Inventory {
       return dump;
    }
    
+   public String weaponMessage() {
+      return weapons[0].getMessage();
+   }
+   
    /**
     * General get method for armor slot.
     * 
@@ -107,7 +111,6 @@ public class Inventory {
     * @param   armor The new armor
     * @return        armor exchanged
     */
-    
    public Armor setArmor(Armor a) {
    
       Armor dump = this.armor;
@@ -117,7 +120,26 @@ public class Inventory {
    }
    
    public void setItem(Usable it) {
-      items.add(it);
+      int index = hasItem(it);
+      if (index == -1)
+         items.add(it);
+      else
+         items.get(index).addUses(it.getUses());
+   }
+   
+   public int hasItem(Usable it) {
+   
+      int i = 0;
+      for (Usable u : items) {
+         if ( it.getClass().equals(u.getClass()) )
+            return i;
+         i++;
+      }
+      return -1;
+   }
+   
+   public void dropItem(Usable it) {
+      items.remove(items.indexOf(it));
    }
    
    public int itemCount() {
@@ -135,10 +157,12 @@ public class Inventory {
       }
    }
    
-   public int useItem(int index) {
-      
-      Usable it = items.get(index);
-      it.use();
+   public int useItem(int index, Fightable target) {
+      Usable it = items.get(index-1);
+      System.out.println("[ . . . ]   " + fighter.getName() + it.getMessage());
+      it.use(target);
+      if (it.getUses() == 0)
+         dropItem(it);
       return it.getTime();
    }
 }

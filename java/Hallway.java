@@ -1,9 +1,9 @@
 public class Hallway
 {
-	protected Room[] theHallway;
-	protected int floor;
-	protected String type;
-	protected RoomFactory factory;
+	Room[] theHallway;
+	int floor;
+	String type;
+	RoomFactory factory;
    
    
    public Hallway(String type, int floor)
@@ -32,10 +32,9 @@ public class Hallway
 	   
 	   room = this.factory.makeRoom(this.type);
 	   
-      room.setFloor(this.floor);
 	   room.MakeDescription();
-      room.MakeItems();
-      room.MakeEnemies();
+	   //Make Enemies
+      //Make Items
       
 	   return room;
    }

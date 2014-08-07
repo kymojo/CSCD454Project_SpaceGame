@@ -15,37 +15,37 @@ public class ItemFactory_Armory extends ItemFactory
       String name = this.items.get(index);
       if(name.equals("apple"))
       {
-         return new HealthItem_Apple(level);
+         return new Apple(level);
       }
       else if(name.equals("laserRifle"))
       {
-         return new Weapon_LaserRifle(level);
+         return new LaserRifle(level);
       }
       else if(name.equals("plasma"))
       {
-         return new Weapon_PlasmaRifle(level);
+         return new PlasmaRifle(level);
       }
       else if(name.equals("grenade"))
       {
-         return new FightItem_FragGrenade(level);
+         return new FragGrenade(level);
       }
       
-       return new Armor_LightArmor(level);
+       return new LightArmor(level);
       
    }
    
    public  Item getBossWeapon(int level)
    {
-      return new Weapon_LaserRifle(level);
+      return new LaserRifle(level);
    }
    
    public  Item getBossArmor(int level)
    {
-      return new Armor_LightArmor(level);
+      return new LightArmor(level);
    }
    
    public Item getBossItem(int level)
    {
-      return new HealthItem_Apple(level);
+      return new Apple(level);
    }
 }
