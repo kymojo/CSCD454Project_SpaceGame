@@ -1,6 +1,6 @@
-public class Armor_LightArmor extends Armor
+public class Weapon_LightArmor extends Armor
 {
-   public Armor_LightArmor(int level)
+   public Weapon_LightArmor(int level)
    {
      this.name = "Light Armor";
      this.description = "Small, lightweight armor";
