@@ -77,7 +77,7 @@ public class CombatArena {
     * 
     * @return     the list of fighters
     */
-   public static ArrayList listCombatants() {
+   public static ArrayList getEnemyArray() {
    
       return enemies;
    }
@@ -150,14 +150,14 @@ public class CombatArena {
 
    /**
     * A simple method that iterates through the list of enemies
-    * and prints their names and position in the list.
+    * and prints their names, position in the list, and health.
     */
    public static void listEnemies() {
    
       int i = 1;
       for (Fightable e : enemies) {
          
-         System.out.println(" "+i + ": " + e.getName() );
+         System.out.println(" "+i + ": " + e.getName() + " " + e.getHP() );
          i++;
       }
    }

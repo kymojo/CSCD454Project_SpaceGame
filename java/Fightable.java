@@ -30,6 +30,14 @@ public abstract class Fightable {
    }
    
    /**
+    * @return        String of character's health
+    */
+   public String getHP() {
+      String hpReturn = "["+health+"/"+healthMax+"]";
+      return hpReturn;
+   }
+   
+   /**
     * Uses the primary weapon equipped to attack a given
     * enemy fighter. Calls the enemy's defend method for
     * damage calculation.
@@ -40,7 +48,7 @@ public abstract class Fightable {
       
       System.out.println("[ATTACK!]   "+name + " attacks " + enemy.getName() + "!");
       
-      int damage = inventory.getWeapon()/* USE A FACADE */.attack();
+      int damage = inventory.weaponAttack();
       if (damage == -1)
          System.out.println("[ MISS! ]   Attack missed!");
       else
@@ -56,7 +64,7 @@ public abstract class Fightable {
     */
    public void defend(int damage) {
       
-      int dmg = inventory.getArmor()/* USE A FACADE */.damageReduce(damage);
+      int dmg = inventory.armorDamage(damage);
       health -= dmg;
       System.out.println("[DAMAGE!]   "+name+" takes "+dmg+" damage!!");
       if (health <= 0) {

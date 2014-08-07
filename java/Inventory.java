@@ -33,6 +33,22 @@ public class Inventory {
    }
    
    /**
+    * @return        attack damage for current weapon
+    */
+   public int weaponAttack() {
+   
+      return weapons[0].attack();
+   }
+   
+   /**
+    * @return        attack time for current weapon
+    */
+   public int weaponAttackTime() {
+   
+      return weapons[0].getAttackTime();
+   }
+   
+   /**
     * Exchange current weapon for secondary weapon. If only one weapon,
     * display error message and return failure value.
     * 
@@ -73,6 +89,14 @@ public class Inventory {
    public Armor getArmor() {
    
       return armor;
+   }
+   
+   /**
+    * @return        reduced damage from current armor
+    */
+   public int armorDamage(int dmg) {
+   
+      return armor.damageReduce(dmg);
    }
    
    /**

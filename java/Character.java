@@ -45,7 +45,11 @@ public class Character extends Fightable {
       int time = 0;
       int choice = 0;
       
-      System.out.println("[ ? ? ? ]   Player Action:\n 1. Use Weapon\n 2. Swap Weapon\n 3. Use Item\n 4. Flee");
+      System.out.println("\n[ ARENA ]");
+      System.out.println(" 0: " + name + " " + this.getHP());
+      CombatArena.listEnemies();
+      
+      System.out.println("\n[ ? ? ? ]   Player Action:\n 1. Use Weapon\n 2. Swap Weapon\n 3. Use Item\n 4. Flee");
       
       while(choice == 0) {
       
@@ -63,7 +67,7 @@ public class Character extends Fightable {
                         } while (CombatArena.getEnemy(enemy) == null);
                      }
                      attack(CombatArena.getEnemy(enemy));
-                     time = inventory.getWeapon()/* USE A FACADE */.getAttackTime();
+                     time = inventory.weaponAttackTime();
                      break;
             case 2:
                      if (inventory.swapWeapon() == 1) {
