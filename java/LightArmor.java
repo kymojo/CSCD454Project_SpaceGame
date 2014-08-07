@@ -2,8 +2,8 @@ public class LightArmor extends Armor
 {
    public LightArmor(int level)
    {
-      name = "Light Armor";
-      description = "Small, lightweight armor";
-      defModifier = .1;
+     this.name = "Light Armor";
+     this.description = "Small, lightweight armor";
+     this.defModifier = .1;
    }
 }

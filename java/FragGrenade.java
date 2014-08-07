@@ -7,7 +7,7 @@ public class FragGrenade extends FightItem
       useTime = 4;
    }
    
-   public getTime()
+   public int getTime()
    {
       return useTime;
    }

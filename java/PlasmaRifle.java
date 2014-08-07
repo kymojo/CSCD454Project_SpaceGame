@@ -2,7 +2,7 @@ public class PlasmaRifle extends Weapon
 {
    
 
-   public PlasmaRiffle(int level)
+   public PlasmaRifle(int level)
    {
       name = "Plasma Rifle";
       description = "A strange alien weapon that seems to fire pure energy.";

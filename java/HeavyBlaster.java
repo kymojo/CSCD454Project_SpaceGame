@@ -1,6 +1,6 @@
 public class HeavyBlaster extends Weapon
 {
-   public HeavyBlaster
+   public HeavyBlaster(int level)
    {
       name = "Heavy Blaster";
       description = "A more powerful version of the standard issue blaster pistol.";

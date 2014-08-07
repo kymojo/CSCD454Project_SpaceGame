@@ -1,4 +1,4 @@
-public class DockingBatItemFactory extends ItemFactory
+public class DockingBayItemFactory extends ItemFactory
 {
    public DockingBayItemFactory()
    {
@@ -41,7 +41,7 @@ public class DockingBatItemFactory extends ItemFactory
    
    public  Item getBossArmor(int level)
    {
-      return LightArmor(level);
+      return new LightArmor(level);
    }
 
    public  Item getBossItem(int level)

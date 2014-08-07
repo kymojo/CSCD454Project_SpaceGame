@@ -4,11 +4,9 @@
  * @author  Kyle Johnson
  */
 
-public abstract class Armor {
+public abstract class Armor extends Item{
 
    protected double defModifier;
-   protected String name;
-   protected String description;
    
    /**
     * 

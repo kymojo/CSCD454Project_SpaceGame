@@ -9,7 +9,7 @@ import java.util.Random;
 public abstract class Weapon extends Item{
 
    
-   protected int damage;
+   protected double damage;
    protected double accuracy;
    protected int attackTime;
    
@@ -21,7 +21,7 @@ public abstract class Weapon extends Item{
     *
     * @return  return damage to be dealt.
     */
-   public int attack() {
+   public double attack() {
       
       Random random = new Random();
       

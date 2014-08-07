@@ -2,10 +2,10 @@ import java.util.Random;
 
 public abstract class FightItem extends Usable
 {
-   protected int damage;
+   protected double damage;
    protected double acuracy;
    
-   public int use()
+   public double use()
    {
       uses--;
       Random myRand = new Random();

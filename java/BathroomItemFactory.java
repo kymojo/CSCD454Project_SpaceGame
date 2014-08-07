@@ -41,7 +41,7 @@ public class BathroomItemFactory extends ItemFactory
    
    public  Item getBossArmor(int level)
    {
-      return LightArmor(level);
+      return new LightArmor(level);
    }
    
    public  Item getBossItem(int level)

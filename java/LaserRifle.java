@@ -1,4 +1,4 @@
-public class LaserRifle extends Weapons
+public class LaserRifle extends Weapon
 {
 
    public LaserRifle(int level)

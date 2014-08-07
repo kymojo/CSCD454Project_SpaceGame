@@ -35,7 +35,7 @@ public class Inventory {
    /**
     * @return        attack damage for current weapon
     */
-   public int weaponAttack() {
+   public double weaponAttack() {
    
       return weapons[0].attack();
    }

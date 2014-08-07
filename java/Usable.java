@@ -6,7 +6,7 @@ public abstract class Usable extends Item
    
    protected int uses;
    
-   public getTime()
+   public int getTime()
    {
       return useTime;   
    }
