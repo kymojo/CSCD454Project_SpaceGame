@@ -6,10 +6,9 @@
  
 import java.util.Random;
 
-public abstract class Weapon {
+public abstract class Weapon extends Item{
 
-   protected String name;
-   protected String description;
+   
    protected int damage;
    protected double accuracy;
    protected int attackTime;
