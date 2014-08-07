@@ -33,7 +33,9 @@ public class Hallway
 	   room = this.factory.makeRoom(this.type);
 	   
 	   room.MakeDescription();
-	   
+	   //Make Enemies
+      //Make Items
+      
 	   return room;
    }
 

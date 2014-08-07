@@ -15,7 +15,7 @@ public class Room
    //Make Items for the rooms
    public void MakeItems()
    {
-	   //Make Items f
+	   
    }
    
    //Make Enemies for the rooms
@@ -29,6 +29,7 @@ public class Room
 	   return this.Description;
    }
    
+   //Get the type of room
    public String getType()
    {
 	   return this.Type;
