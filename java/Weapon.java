@@ -26,33 +26,15 @@ public abstract class Weapon extends Item{
       Random random = new Random();
       
       if (accuracy > random.nextDouble())
-         return damage;
+         return this.damage;
       else
          return -1;
-   }
-   
-   /**
-    * General get method for weapon name.
-    * 
-    * @return        weapon name
-    */
-   public String getName() {
-      return name;
-   }
-   
-   /**
-    * General get method for weapon description.
-    * 
-    * @return        description
-    */
-   public String getDescription() {
-      return description;
    }
    
    /**
     *
     */
    public int getAttackTime() {
-      return attackTime;
+      return this.attackTime;
    }
 }
