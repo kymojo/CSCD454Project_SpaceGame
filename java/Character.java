@@ -54,17 +54,16 @@ public class Character extends Fightable {
       while(choice == 0) {
       
          choice = getUserInt(4);
+         int enemyCount = CombatArena.countEnemies();
       
          switch (choice) {
             case 1:
                      int enemy = 1;
-                     int enemyCount = CombatArena.countEnemies();
+                     
                      if (enemyCount > 1) {
                         System.out.println("[ ? ? ? ]   Choose an enemy: ");
                         CombatArena.listEnemies();
-                        do {
-                           enemy = getUserInt(enemyCount);
-                        } while (CombatArena.getEnemy(enemy) == null);
+                        enemy = getUserInt(enemyCount);
                      }
                      attack(CombatArena.getEnemy(enemy));
                      time = inventory.weaponAttackTime();
@@ -91,11 +90,14 @@ public class Character extends Fightable {
                      int iGet = getUserInt(itemCount+1);
                      if (iGet == itemCount+1)
                         choice = 0;
-                     else
-                        time = inventory.useItem(iGet);
-                    
-                     
-                     // time = characterTime
+                     else {
+                        System.out.println("[ ? ? ? ]   Choose a target: ");
+                        CombatArena.listEnemies();
+                        System.out.println(" " + (enemyCount+1) + ": " + name + " " + getHP() );
+                        int eGet = getUserInt(enemyCount+1);
+                        Fightable target = CombatArena.getEnemy(eGet);
+                        time = inventory.useItem(iGet, target);
+                     }
                      break;
             case 4:
 /*D*/                System.out.println("[ ! ! ! ]   Unable to escape!");

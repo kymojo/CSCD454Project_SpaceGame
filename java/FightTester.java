@@ -15,7 +15,7 @@ public class FightTester {
       CombatArena.addCombatant(player);
       CombatArena.addCombatant(enemy);
       CombatArena.addCombatant(enemy2);
-      player.getInventory().setItem(new HealthItem_Apple(1));
+      player.getInventory().setItem(new FightItem_FragGrenade(1));
       player.getInventory().setItem(new HealthItem_Apple(1));
       CombatArena.combatSteps();
    }
