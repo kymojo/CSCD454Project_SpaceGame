@@ -5,15 +5,16 @@ public abstract class FightItem extends Usable
    protected int damage;
    protected double acuracy;
    
-   public int doItem()
+   public int use()
    {
+      uses--;
       Random myRand = new Random();
       double num = myRand.nextDouble();
       if(num > acuracy)
       {
          return damage;
       }
-      return 0;
+      return -1;
    }
    
    public String toString() {
