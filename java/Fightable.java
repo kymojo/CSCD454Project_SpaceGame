@@ -50,7 +50,7 @@ public abstract class Fightable {
     */
    public void attack(Fightable enemy) {
       
-      System.out.println("[ATTACK!]   "+name + " attacks " + enemy.getName() + "!");
+      System.out.println("[ATTACK!]   "+name + inventory.weaponMessage() + enemy.getName() + "!");
       
       int damage = inventory.weaponAttack();
       if (damage == -1)
@@ -75,6 +75,18 @@ public abstract class Fightable {
          System.out.println("[ DEATH ]   "+name+" died!");
          CombatArena.removeCombatant(this);
       }
+   }
+   
+   /**
+    * 
+    */
+   public void heal(int h) {
+      health += h;
+      if (health > healthMax) {
+         h += (healthMax - health);
+         health = healthMax;
+      }
+      System.out.println("[ HEAL! ]   "+name+" healed " + h + "hp!");
    }
    
    /**

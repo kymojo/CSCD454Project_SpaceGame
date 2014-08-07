@@ -82,6 +82,10 @@ public class Inventory {
       return dump;
    }
    
+   public String weaponMessage() {
+      return weapons[0].getMessage();
+   }
+   
    /**
     * General get method for armor slot.
     * 
@@ -120,6 +124,10 @@ public class Inventory {
       items.add(it);
    }
    
+   public void dropItem(Usable it) {
+      items.remove(items.indexOf(it));
+   }
+   
    public int itemCount() {
    
       return items.size();
@@ -135,10 +143,12 @@ public class Inventory {
       }
    }
    
-   public int useItem(int index) {
-      
-      Usable it = items.get(index);
-      it.use();
+   public int useItem(int index, Fightable target) {
+      Usable it = items.get(index-1);
+      System.out.println("[ . . . ]   " + fighter.getName() + it.getMessage());
+      it.use(target);
+      if (it.getUses() == 0)
+         dropItem(it);
       return it.getTime();
    }
 }

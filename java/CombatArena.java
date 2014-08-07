@@ -169,10 +169,9 @@ public class CombatArena {
     * @return           the enemey at the given index
     */
    public static Fightable getEnemy(int index) {
-   
-/*D*/ // check for index out of bounds
+      if ( (index-1) == countEnemies())
+         return player;
       return enemies.get(index-1);
-/*D*/ // if out of bounds, return null and handle it in calling method
    }
    
    /**
