@@ -2,10 +2,10 @@ import java.util.Random;
 
 public abstract class FightItem extends Usable
 {
-   protected double damage;
+   protected int damage;
    protected double acuracy;
    
-   public double use()
+   public int use()
    {
       uses--;
       Random myRand = new Random();
@@ -15,5 +15,12 @@ public abstract class FightItem extends Usable
          return damage;
       }
       return -1;
+   }
+   
+   public String toString() {
+      String result = name + " (" + damage + "dmg)";
+      if (uses > 1)
+         result += " x" + uses;
+      return result;
    }
 }

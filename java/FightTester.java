@@ -15,6 +15,8 @@ public class FightTester {
       CombatArena.addCombatant(player);
       CombatArena.addCombatant(enemy);
       CombatArena.addCombatant(enemy2);
+      player.getInventory().setItem(new Apple(1));
+      player.getInventory().setItem(new Apple(1));
       CombatArena.combatSteps();
    }
 }

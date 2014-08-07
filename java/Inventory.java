@@ -4,12 +4,14 @@
  * @author  Kyle Johnson
  */
 
+import java.util.ArrayList;
+
 public class Inventory {
 
    private Fightable fighter;
    private Weapon[] weapons = new Weapon[2];
    private Armor armor;
-   private Item[] usable = new Item[3];
+   private ArrayList<Usable> items = new ArrayList(0);
    
    /**
     * Constructor for Inventory
@@ -35,7 +37,7 @@ public class Inventory {
    /**
     * @return        attack damage for current weapon
     */
-   public double weaponAttack() {
+   public int weaponAttack() {
    
       return weapons[0].attack();
    }
@@ -105,11 +107,38 @@ public class Inventory {
     * @param   armor The new armor
     * @return        armor exchanged
     */
+    
    public Armor setArmor(Armor a) {
    
       Armor dump = this.armor;
       this.armor = a;
       
       return dump;
+   }
+   
+   public void setItem(Usable it) {
+      items.add(it);
+   }
+   
+   public int itemCount() {
+   
+      return items.size();
+   }
+   
+   public void itemListPrint() {
+   
+      int i = 1;
+      for (Usable use : items) {
+         
+         System.out.println(" "+i + ": " + use );
+         i++;
+      }
+   }
+   
+   public int useItem(int index) {
+      
+      Usable it = items.get(index);
+      it.use();
+      return it.getTime();
    }
 }

@@ -9,4 +9,11 @@ public abstract class HealthItem extends Usable
       
    }
    
+   public String toString() {
+      String result = name + " (+" + healthRes + "hp)";
+      if (uses > 1)
+         result += " x" + uses;
+      return result;
+   }
+   
 }

@@ -78,9 +78,23 @@ public class Character extends Fightable {
                            time = speed;
                      break;
             case 3:
-/*D*/                System.out.println("[ ! ! ! ]   No items!");
-/*D*/                choice = 0;
                      // Item Stuff
+                     int itemCount = inventory.itemCount();
+                     if (itemCount == 0) {
+                        System.out.println("[ ! ! ! ]   No items!");
+                        choice = 0;
+                        break;
+                     }
+                     System.out.println("[ ? ? ? ]   Choose an item: ");
+                     inventory.itemListPrint();
+                     System.out.println(" " + (itemCount+1) + ": Forget it.");
+                     int iGet = getUserInt(itemCount+1);
+                     if (iGet == itemCount+1)
+                        choice = 0;
+                     else
+                        time = inventory.useItem(iGet);
+                    
+                     
                      // time = characterTime
                      break;
             case 4:

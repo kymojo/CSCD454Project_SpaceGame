@@ -22,6 +22,10 @@ public abstract class Fightable {
       return name;
    }
    
+   public Inventory getInventory() {
+      return inventory;
+   }
+   
    /**
     * @return        fighter speed
     */
