@@ -15,38 +15,38 @@ public class ItemFactory_Bridge extends ItemFactory
       String name = this.items.get(index);
       if(name.equals("grenade"))
       {
-         return new FragGrenade(level);
+         return new FightItem_FragGrenade(level);
       }
       else if(name.equals("blaster"))
       {
-         return new Blaster(level);
+         return new Weapon_Blaster(level);
       }
       else if(name.equals("laser"))
       {
-         return new LaserRifle(level);
+         return new Weapon_LaserRifle(level);
       }
       else if(name.equals("apple"))
       {
-         return new Apple(level);
+         return new HealthItem_Apple(level);
       }
       
-      return new PlasmaRifle(level);
+      return new Weapon_PlasmaRifle(level);
      
    }
    
    public  Item getBossWeapon(int level)
    {
-      return new PlasmaRifle(level);
+      return new Weapon_PlasmaRifle(level);
    }
    
    public  Item getBossArmor(int level)
    {
-      return new LightArmor(level);
+      return new Armor_LightArmor(level);
    }
    
    public  Item getBossItem(int level)
    {
-      return new FragGrenade(level);
+      return new FightItem_FragGrenade(level);
    }
 
 }

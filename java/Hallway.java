@@ -1,9 +1,9 @@
 public class Hallway
 {
-	Room[] theHallway;
-	int floor;
-	String type;
-	RoomFactory factory;
+   protected Room[] theHallway;
+	protected int floor;
+	protected String type;
+	protected RoomFactory factory;
    
    
    public Hallway(String type, int floor)

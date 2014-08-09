@@ -15,38 +15,38 @@ public class ItemFactory_Bathroom extends ItemFactory
       String name = this.items.get(index);
       if(name.equals("apple"))
       {
-         return new Apple(level);
+         return new HealthItem_Apple(level);
       }
       else if(name.equals("armor"))
       {
-         return new LightArmor(level);
+         return new Armor_LightArmor(level);
       }
       else if(name.equals("spoon"))
       {
-         return new Spoon(level);
+         return new Weapon_Spoon(level);
       }
       else if(name.equals("blaster"))
       {
-         return new Blaster(level);
+         return new Weapon_Blaster(level);
       }
       
-      return new HealthPack(level);
+      return new HealthItem_HealthPack(level);
       
    }
    
    public  Item getBossWeapon(int level)
    {
-      return new Blaster(level);
+      return new Weapon_Blaster(level);
    }
    
    public  Item getBossArmor(int level)
    {
-      return new LightArmor(level);
+      return new Armor_LightArmor(level);
    }
    
    public  Item getBossItem(int level)
    {
-      return new HealthPack(level);
+      return new HealthItem_HealthPack(level);
    }
 
 }

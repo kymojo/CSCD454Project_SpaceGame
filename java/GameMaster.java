@@ -10,8 +10,8 @@ public class GameMaster
 	   //Hallway hallway;
 	   //Hero value
 	   
-	   //Test_Hallway();
-	   Test_Menu();
+	   Test_Hallway();
+	   //Test_Menu();
    
    
    

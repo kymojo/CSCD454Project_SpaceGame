@@ -15,38 +15,38 @@ public class ItemFactory_CargoHold extends ItemFactory
       String name = this.items.get(index);
       if(name.equals("heavyblasetr"))
       {
-         return new HeavyBlaster(level);
+         return new Weapon_HeavyBlaster(level);
       }
       else if(name.equals("grenade"))
       {
-         return new FragGrenade(level);
+         return new FightItem_FragGrenade(level);
       }
       else if(name.equals("plasma"))
       {
-         return new PlasmaRifle(level);
+         return new Weapon_PlasmaRifle(level);
       }
       else if(name.equals("apple"))
       {
-         return new Apple(level);
+         return new HealthItem_Apple(level);
       }
       
-      return new LaserSword(level);
+      return new Weapon_LaserSword(level);
       
    }
    
    public  Item getBossWeapon(int level)
    {
-      return new LaserSword(level);
+      return new Weapon_LaserSword(level);
    }
    
    public  Item getBossArmor(int level)
    {
-      return new LightArmor(level);
+      return new Armor_LightArmor(level);
    }
    
    public  Item getBossItem(int level)
    {
-      return new FragGrenade(level);
+      return new FightItem_FragGrenade(level);
    }
 
 }

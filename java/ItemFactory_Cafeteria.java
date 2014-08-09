@@ -15,37 +15,37 @@ public class ItemFactory_Cafeteria extends ItemFactory
       String name = this.items.get(index);
       if(name.equals("spoon"))
       {
-         return new Spoon(level);
+         return new Weapon_Spoon(level);
       }
       else if(name.equals("health"))
       {
-         return new HealthPack(level);
+         return new HealthItem_HealthPack(level);
       }
       else if(name.equals("blaster"))
       {
-         return new Blaster(level);
+         return new Weapon_Blaster(level);
       }
       else if(name.equals("knife"))
       {
-         return new Knife(level);
+         return new Weapon_Knife(level);
       }
      
-       return new FragGrenade(level);
+       return new FightItem_FragGrenade(level);
       
    }
    
    public Item getBossWeapon(int level)
    {
-      return new Knife(level);
+      return new Weapon_Knife(level);
    }
    
    public Item getBossArmor(int level)
    {
-      return new LightArmor(level);
+      return new Armor_LightArmor(level);
    }
    
    public Item getBossItem(int level)
    {
-      return new FragGrenade(level);
+      return new FightItem_FragGrenade(level);
    }
 }
