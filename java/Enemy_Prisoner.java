@@ -9,7 +9,6 @@ public class Enemy_Prisoner extends Enemy {
    public Enemy_Prisoner() {
    
       name = "Prisoner";
-      description = "One of the escaped prisoners.";
       
       healthMax = 10;
       health = healthMax;

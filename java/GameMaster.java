@@ -33,7 +33,8 @@ public class GameMaster
    
    public static void ResetGame()
    {
-   
+      //Reset all things 
+      //Go thru menu again.
    }
    
    public static void Test_Hallway()

@@ -32,9 +32,10 @@ public class Hallway
 	   
 	   room = this.factory.makeRoom(this.type);
 	   
+      room.setFloor(this.floor);
 	   room.MakeDescription();
-	   //Make Enemies
-      //Make Items
+      room.MakeItems();
+	   room.MakeEnemies();
       
 	   return room;
    }
@@ -45,8 +46,28 @@ public class Hallway
 	   
 	   for(int i=0;i<3;i++)
 	   {
-		   StringReturn= StringReturn + this.theHallway[i].getDescription();
+		   StringReturn= StringReturn + this.theHallway[i].getDescription() + "\n";
+         
+         Item[] testItems = this.theHallway[i].getItemList();
+         
+         StringReturn+= "^ITEMS\n";
+         for(int j=0;j<testItems.length;j++)
+         {
+            StringReturn = StringReturn + testItems[j].getName()+"\n";
+            StringReturn = StringReturn + "*" +testItems[j].getDescription()+"\n";
+         }
+         
+         Enemy[] testEnemies = this.theHallway[i].getEnemyList();
+         
+         StringReturn+= "^ENEMIES\n";
+         for(int e=0;e<testEnemies.length;e++)
+         {
+            StringReturn = StringReturn + testEnemies[e].getName()+"\n";
+         }
+         
+         StringReturn+="\n";
 	   }
+      
 	   
 	   return StringReturn;
    }

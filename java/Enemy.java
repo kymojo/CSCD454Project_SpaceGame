@@ -5,8 +5,6 @@
  */
 
 public abstract class Enemy extends Fightable {
-
-   protected String description;
    
    public abstract int combat();
 }
