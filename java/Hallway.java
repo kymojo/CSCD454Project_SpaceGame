@@ -39,7 +39,32 @@ public class Hallway
       
 	   return room;
    }
+   
+   public void getHallwayDescription()
+   {
+      System.out.println(this.theHallway[0].getDescription());
+   }
+   
+   public Enemy[] getEnemyListCertainRoom(int x)
+   {
+      return this.theHallway[x-1].getEnemyList();
+   }
+   
+   public void clearEnemyListCertainRoom(int x)
+   {
+      this.theHallway[x-1].clearEnemyList();
+   }
 
+   public void whatsInACertainRoom(int x)
+   {
+      this.theHallway[x-1].whatsInRoom(x);
+   }
+   
+   public boolean hasEnemyCertainRoom(int x)
+   {
+      return this.theHallway[x-1].hasEnemy();
+   }
+   
    public String Test_theHallway()
    {
 	   String StringReturn = "";

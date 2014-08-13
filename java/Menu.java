@@ -3,21 +3,21 @@ import java.util.*;
 public class Menu
 {
 	Scanner sc = new Scanner(System.in);
+   String clearBuffer;
 	
 	//In this method you can test different menus
-   public void StartMenu()
+   public void testMenu()
    {
 	   intro();
 	   mainMenu();
 	   heroMenu();
-	  startGameIntro();
+	   startGameIntro();
    }
    
    public int mainMenu()
    {
 	   int menuSelect = 9999999;
-	   String clearBuffer;
-	   
+      
 	   do{
 	   System.out.println("*** Main Menu ***");
 	   System.out.println("1 - Start Game");
@@ -35,7 +35,46 @@ public class Menu
 	   System.out.println(".");
 	   }while(menuSelect!=1 && menuSelect!=2 && menuSelect!=3);
 	   clearBuffer = this.sc.nextLine();
+      
 	   return menuSelect;
+   }
+   
+   public int pickHallway()
+   {
+	   int menuSelect = 9999999;
+      
+	   do{
+	   System.out.println("Pick 1, 2 or 3 . . .");
+	   System.out.print("Selection: ");
+	   if(this.sc.hasNextInt())
+	   {
+		   menuSelect = this.sc.nextInt(); 
+	   }
+	   else
+	   {
+		   clearBuffer = this.sc.nextLine();
+	   }
+	   System.out.println(".");
+	   }while(menuSelect!=1 && menuSelect!=2 && menuSelect!=3);
+	   clearBuffer = this.sc.nextLine();
+      
+	   return menuSelect;
+   }
+   
+   public void pressEnterContinue()
+   {
+      System.out.println("Press Enter To Continue . . .");
+      clearBuffer = this.sc.nextLine();
+      
+   }
+   
+   public void hallwayChoice(int floor,String FirstHW,String SecondHW,String ThirdHW)
+   {
+      System.out.println("*Floor: "+floor);
+      System.out.println(" You find your self looking at 3 hallways you can take:");
+      System.out.println("-> 1:"+FirstHW);
+      System.out.println("-> 2:"+SecondHW);
+      System.out.println("-> 3:"+ThirdHW);
    }
    
    public String heroMenu()
@@ -51,6 +90,10 @@ public class Menu
 	   return Name;
    }
    
+   public void credits()
+   {
+      System.out.println("***CREDITS***");
+   }
    public void startGameIntro()
    {
 	   System.out.println("   _____________________________________________");
@@ -78,12 +121,12 @@ public class Menu
 	   System.out.println("|/                                                lc \\|");
 	   System.out.println(".");
 	   System.out.println(".");
-	   System.out.print("  You have been in cell AC34 for 20 years. Days seem like months and months seem like years, it all\n blends together as you try to");
-	   System.out.print("get a grasp on what is real and what is in infront of your eyes. As you sit there, like so many\n years, in your cell you hear an");
-	   System.out.print("EXPLOSION followed by cries of help. You just get to your feet and find that the explosion has\n blown");
+	   System.out.print("   You have been in cell AC34 for 20 years. Days seem like months and months seem like years, it all blends together\nas you try to");
+	   System.out.print("get a grasp on what is real and what is in infront of your eyes. As you sit there, like so many\nyears, in your cell you hear an");
+	   System.out.print("EXPLOSION followed by cries of help. You just get to your feet and find that the explosion has\nblown");
 	   System.out.print(" a hole right out of your cell, as you peek outside for the first time you see pure chaos. Prisoners running\n around killing, guards");
-	   System.out.print(" fending off prisoners and you know that this is your chance, your chance to ESCAPE FROM SPACE PRISON.\n You know on the 3rd");
-	   System.out.print(" floor there are escape pods for the guards to leave if this such an event happened.\n If you make it in time I bet you can get one");
+	   System.out.print(" fending off prisoners and you know that this is your chance, your chance to ESCAPE FROM SPACE PRISON.\nYou know on the 3rd");
+	   System.out.print(" floor there are escape pods for the guards to leave if this such an event happened.\nIf you make it in time I bet you can get one");
 	   System.out.print(" but along the way you might need to fight off some prisoners. GET MOVING!!!\n.\n.\n");
    }
    

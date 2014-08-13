@@ -61,9 +61,50 @@ public class Room
       this.EnemyList = EnemyList;
    }
    
+   public void clearEnemyList()
+   {
+      this.EnemyList = new Enemy[0];
+   }
+   
    public Enemy[] getEnemyList()
    {
       return this.EnemyList;
    }
    
+   public boolean hasEnemy()
+   {
+      if(EnemyList.length>0)
+      {
+         return true;
+      }
+      else
+      {
+         return false;
+      }
+   }
+   public void whatsInRoom(int x)
+   {
+      System.out.println("*Room: "+x+"*");
+      System.out.print("-Items: ");
+      for(int j=0;j<ItemList.length;j++)
+      {
+         if(j!=0)
+         {
+            System.out.print(", ");
+         }
+         System.out.print(ItemList[j].getName());
+      }
+      System.out.println();
+      System.out.print("-Enemies: ");
+      for(int j=0;j<EnemyList.length;j++)
+      {
+         if(j!=0)
+         {
+            System.out.print(", ");
+         }
+         System.out.print(EnemyList[j].getName());
+      }
+      System.out.println();
+
+   }
 }

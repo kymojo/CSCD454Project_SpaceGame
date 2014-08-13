@@ -68,7 +68,8 @@ public class CombatArena {
     */
    public static void clearArena() {
    
-      enemies.clear();
+      
+      enemies = new ArrayList(1);
       player = null;
       flee = false;
    }

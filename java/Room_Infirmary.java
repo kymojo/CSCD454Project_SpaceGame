@@ -9,9 +9,9 @@ public class Room_Infirmary extends Room
 	@Override
 	public void MakeDescription()
 	{
-		 this.Description = "*The Infirmary*\n Walking into the room you see rows of beds, as you have been in here before you remember\n" +
-		 		"this place to be very clean and orginized as Dr.Zed was head of this facility he was always nice, You hope he made it out\n" +
-		 		"in time, because you dont see him here.";
+		 this.Description = "*The Infirmary*\n Walking into the room you see rows of beds, as you have been in here before you remember" +
+		 		"this place \nto be very clean and orginized as Dr.Zed was head of this facility he was always nice, You hope he made it out\n" +
+		 		"in time, because you dont see him here.\n.\n";
 	}
    
    @Override
