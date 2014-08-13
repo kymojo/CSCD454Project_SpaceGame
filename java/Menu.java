@@ -39,6 +39,13 @@ public class Menu
 	   return menuSelect;
    }
    
+   public void diedText()
+   {
+      System.out.println("****************");
+      System.out.println("**You Have Died*");
+      System.out.println("****************");
+      System.out.println("*As you gasp for your last breath, you wonder can any one ESCAPE FROM SPACE PRISON?!?!");
+   }
    public int pickHallway()
    {
 	   int menuSelect = 9999999;

@@ -19,7 +19,7 @@ public class GameMaster
    public static void StartGame()
    {
       Hallway hallway;                                            //Main Hallway that will be used
-      int floor;                                                  //Floor tracker
+      int floor=0;                                                  //Floor tracker
       RandomHallwayTracker HWTracker = new RandomHallwayTracker();//Hallway tracker
       Character player;                                           //This is the players character.
       Menu menu=new Menu();                                       //Menu instance
@@ -31,20 +31,20 @@ public class GameMaster
       int choice;
       do
       {
-      
+         
          choice=menu.mainMenu();
          
          if(choice==1)
          {
             //Start Game
             player = new Character();
-            floor=1;
             
             menu.startGameIntro();
             
             //Hallway
             do
             {
+               floor++;
                String FirstHW  = HWTracker.randomHallway();
                String SecondHW = HWTracker.randomHallway();
                String ThirdHW  = HWTracker.randomHallway();
@@ -97,6 +97,10 @@ public class GameMaster
                   {
                      //Skip Combat
                      //Collect Room Items
+                     
+                     //check if there is items in the room.
+                     
+                     //collect items
                   }
                   
                   
@@ -108,8 +112,9 @@ public class GameMaster
                   else if(CombatOutcome==2)
                   {
                      //Died
+                     menu.diedText();
                      flag=false;
-                     floor=5;
+                     floor=99;
                   }
                   else if(CombatOutcome==3)
                   {
@@ -127,8 +132,13 @@ public class GameMaster
                   roomNum++;
                }
             
-            floor++;
-            }while(floor!=5);
+            }while(floor<5);
+            
+            if(floor==4)
+            {
+               //Boss FIght
+               System.out.println("Boss Fight");
+            }
          }
          else if(choice==2)
          {

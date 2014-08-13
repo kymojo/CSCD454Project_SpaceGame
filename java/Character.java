@@ -20,7 +20,7 @@ public class Character extends Fightable {
       System.out.print("[ ? ? ? ]   Input player name:\n > ");
       name = userInput.nextLine();
       
-      healthMax = 30;
+      healthMax = 100;
       health = healthMax;
       
       inventory = new Inventory(this);

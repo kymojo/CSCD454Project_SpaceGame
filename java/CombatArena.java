@@ -121,17 +121,17 @@ public class CombatArena {
    private static int checkVictory() {
    
       if (enemies.isEmpty()) {
-         System.out.println("[VICTORY]   The player has won the battle!");
+         System.out.println("[VICTORY]   The player has won the battle!\n");
          return 1;
       }
       
       if (player == null) {
-         System.out.println("[FAILURE]   The enemy has won the battle!");
+         System.out.println("[FAILURE]   The enemy has won the battle!\n");
          return 2;
       }
       
       if (flee) {
-         System.out.println("[ FLEE! ]   " + player.getName() + " ran away!");
+         System.out.println("[ FLEE! ]   " + player.getName() + " ran away!\n");
          return 3;
       }
 

@@ -56,6 +56,24 @@ public class Room
       return this.ItemList;
    }
    
+   public Item getItem(int index)
+   {
+      Item item = this.ItemList[index];
+      this.ItemList[index] = null;
+      
+      Item[] tempItemList = new Item[this.ItemList.length-1];
+      
+      int j=0;
+      for(int i=0;i<this.ItemList.length;i++)
+      {
+         if(this.ItemList[i]!=null)
+         {
+            tempItemList[j]=this.ItemList[i];   // YOUR ARE HERE
+         }
+      }
+      return item;
+   }
+   
    public void setEnemyList(Enemy[] EnemyList)
    {
       this.EnemyList = EnemyList;
