@@ -15,12 +15,13 @@ public class CombatArena {
    private static CombatArena arena = new CombatArena();
    private static Fightable player = null;
    private static ArrayList<Fightable> enemies = new ArrayList(1);
-   
+   private static boolean flee = false;
+//--------------------------------------------------------------------------
    /**
     * Private constructor to preserve singleton
     */
    private CombatArena() {}
-   
+//--------------------------------------------------------------------------
    /**
     * SINGLETON getInstance() method
     *
@@ -30,7 +31,7 @@ public class CombatArena {
    
       return arena;
    }
-   
+//--------------------------------------------------------------------------
    /**
     * Adds a new fighter to the arena. If it is an enemy, add it to
     * the ArrayList of enemies. If it is a player, fill the player
@@ -45,7 +46,7 @@ public class CombatArena {
       else
          player = fighter;
    }
-   
+//--------------------------------------------------------------------------
    /**
     * Removes a fighter from the arena. If it is an enemy, check
     * the ArrayList of enemies and remove it. If it is a player,
@@ -61,7 +62,7 @@ public class CombatArena {
          player = null;
       
    }
-   
+//--------------------------------------------------------------------------
    /**
     * Removes all fighters from the arena.
     */
@@ -69,9 +70,9 @@ public class CombatArena {
    
       enemies.clear();
       player = null;
-      
+      flee = false;
    }
-   
+//--------------------------------------------------------------------------
    /**
     * Returns the ArrayList of fighters in the arena
     * 
@@ -81,40 +82,32 @@ public class CombatArena {
    
       return enemies;
    }
-   
+//--------------------------------------------------------------------------
    /**
     * Tick the timers to determine which fighter's turn it is. Player
     * character gets priority over enemies if timers hit 0 at the same
     * time. If the player or all the enemies die, end combat and return
     * to navigation interface.
+    *
+    * @return     the end condition (1 = victory, 2 = failure, 3 = flee)
     */
-   public static void combatSteps() {
+   public static int combatSteps() {
       
       int done = checkVictory();
       
       while( done == 0 ) {
          
-         done = checkVictory();
-         if (done == 0)
-            player.clockTick();
-         else
-            break;
-         
+         player.clockTick();
          for (Fightable e : enemies) {
-         
-            done = checkVictory();
-            if (done == 1)
-               break;
-            else
-               e.clockTick();
+            e.clockTick();
          }
-         
-         // FOR TESTING PURPOSES ONLY
-/*D*///  System.out.println("Combat!!!");
-/*D*///  done = 1;
+         done = checkVictory();
       }
+      
+      clearArena();
+      return done;
    }
-   
+//--------------------------------------------------------------------------
    /**
     * A helpful method for calculating whether combat is over.
     * If the player slot is null, the player is considered to be
@@ -126,28 +119,31 @@ public class CombatArena {
     */
    private static int checkVictory() {
    
-      int done = 0;
+      if (enemies.isEmpty()) {
+         System.out.println("[VICTORY]   The player has won the battle!");
+         return 1;
+      }
       
       if (player == null) {
          System.out.println("[FAILURE]   The enemy has won the battle!");
-         done = 1;
-      }
-         
-      if (enemies.isEmpty()) {
-         System.out.println("[VICTORY]   The player has won the battle!");
-         done = 1;
+         return 2;
       }
       
-      return done;
-   }
+      if (flee) {
+         System.out.println("[ FLEE! ]   " + player.getName() + " ran away!");
+         return 3;
+      }
 
+      return 0;
+   }
+//--------------------------------------------------------------------------
    /**
     * @return     number of enemies in the arena
     */
    public static int countEnemies() {
       return enemies.size();
    }
-
+//--------------------------------------------------------------------------
    /**
     * A simple method that iterates through the list of enemies
     * and prints their names, position in the list, and health.
@@ -161,7 +157,7 @@ public class CombatArena {
          i++;
       }
    }
-   
+//--------------------------------------------------------------------------
    /**
     * 
     * 
@@ -173,7 +169,7 @@ public class CombatArena {
          return player;
       return enemies.get(index-1);
    }
-   
+//--------------------------------------------------------------------------
    /**
     * @return     player
     */
@@ -181,4 +177,9 @@ public class CombatArena {
       
       return player;
    }
+//--------------------------------------------------------------------------
+   public static void flee() {
+      flee = true;
+   }
+//--------------------------------------------------------------------------
 }

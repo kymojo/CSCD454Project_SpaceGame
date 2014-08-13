@@ -14,25 +14,25 @@ public abstract class Fightable {
    protected Inventory inventory;
    //private Status status[];
    protected CombatTimer clock;
-   
+//--------------------------------------------------------------------------
    /**
     * @return        fighter name
     */
    public String getName() {
       return name;
    }
-   
+//--------------------------------------------------------------------------
    public Inventory getInventory() {
       return inventory;
    }
-   
+//--------------------------------------------------------------------------
    /**
     * @return        fighter speed
     */
    public int getSpeed() {
       return speed;
    }
-   
+//--------------------------------------------------------------------------
    /**
     * @return        String of character's health
     */
@@ -40,7 +40,7 @@ public abstract class Fightable {
       String hpReturn = "["+health+"/"+healthMax+"]";
       return hpReturn;
    }
-   
+//--------------------------------------------------------------------------
    /**
     * Uses the primary weapon equipped to attack a given
     * enemy fighter. Calls the enemy's defend method for
@@ -58,7 +58,7 @@ public abstract class Fightable {
       else
          enemy.defend(damage);
    }
-   
+//--------------------------------------------------------------------------
    /**
     * Defends against enemy damage. If the fighter
     * dies from that damage, remove him from the arena.
@@ -76,7 +76,7 @@ public abstract class Fightable {
          CombatArena.removeCombatant(this);
       }
    }
-   
+//--------------------------------------------------------------------------
    /**
     * 
     */
@@ -88,18 +88,18 @@ public abstract class Fightable {
       }
       System.out.println("[ HEAL! ]   "+name+" healed " + h + "hp!");
    }
-   
+//--------------------------------------------------------------------------
    /**
     * 
     */
    public void clockTick() {
-      clock.tick();
+      if (health > 0)
+         clock.tick();
    }
-   
+//--------------------------------------------------------------------------
    /**
     * 
     */
    public abstract int combat();
-   
-   
+//--------------------------------------------------------------------------  
 }

@@ -11,7 +11,7 @@ import java.util.InputMismatchException;
 public class Character extends Fightable {
 
    Scanner userInput = new Scanner(System.in);
-   
+//--------------------------------------------------------------------------
    /**
     * Basic character constructor.
     */
@@ -30,7 +30,7 @@ public class Character extends Fightable {
       speed = 3;
       clock = new CombatTimer(this);
    }
-
+//--------------------------------------------------------------------------
    /**
     * Prompts the player to choose a combat option between:
     * 1. Use Weapon  -- Attack the enemy with the currently equipped weapon
@@ -54,63 +54,28 @@ public class Character extends Fightable {
       while(choice == 0) {
       
          choice = getUserInt(4);
-         int enemyCount = CombatArena.countEnemies();
       
          switch (choice) {
             case 1:
-                     int enemy = 1;
-                     
-                     if (enemyCount > 1) {
-                        System.out.println("[ ? ? ? ]   Choose an enemy: ");
-                        CombatArena.listEnemies();
-                        enemy = getUserInt(enemyCount);
-                     }
-                     attack(CombatArena.getEnemy(enemy));
-                     time = inventory.weaponAttackTime();
+                     time = combatUseWeapon();
                      break;
             case 2:
-                     if (inventory.swapWeapon() == 1) {
-                         System.out.println("[ ! ! ! ]   No secondary weapon!");
-                         choice = 0;
-                     }
-                        else
-                           time = speed;
+                     time = combatSwapWeapon();
                      break;
             case 3:
-                     // Item Stuff
-                     int itemCount = inventory.itemCount();
-                     if (itemCount == 0) {
-                        System.out.println("[ ! ! ! ]   No items!");
-                        choice = 0;
-                        break;
-                     }
-                     System.out.println("[ ? ? ? ]   Choose an item: ");
-                     inventory.itemListPrint();
-                     System.out.println(" " + (itemCount+1) + ": Forget it.");
-                     int iGet = getUserInt(itemCount+1);
-                     if (iGet == itemCount+1)
-                        choice = 0;
-                     else {
-                        System.out.println("[ ? ? ? ]   Choose a target: ");
-                        CombatArena.listEnemies();
-                        System.out.println(" " + (enemyCount+1) + ": " + name + " " + getHP() );
-                        int eGet = getUserInt(enemyCount+1);
-                        Fightable target = CombatArena.getEnemy(eGet);
-                        time = inventory.useItem(iGet, target);
-                     }
+                     time = combatUseItem();
                      break;
             case 4:
-/*D*/                System.out.println("[ ! ! ! ]   Unable to escape!");
-/*D*/                choice = 0;
-                     // Flee
-                     // Take penalty
-                     // Exit arena
+                     time = combatFlee();
                      break;
          }
+         
+         if (time == -1)
+            choice = 0;
       }
       return time;
    }
-   
+//--------------------------------------------------------------------------
    /**
     * Prompts the user for an integer.
     *
@@ -135,5 +100,69 @@ public class Character extends Fightable {
       } while (choice == null);
       
       return (int) choice;
+   }  
+//--------------------------------------------------------------------------
+   public int combatUseWeapon() {
+   
+      int enemy = 1;
+      int enemyCount = CombatArena.countEnemies();
+                     
+      if (enemyCount > 1) {
+         System.out.println("[ ? ? ? ]   Choose an enemy: ");
+         CombatArena.listEnemies();
+         enemy = getUserInt(enemyCount);
+      }
+      attack(CombatArena.getEnemy(enemy));
+      return inventory.weaponAttackTime();
    }
+//--------------------------------------------------------------------------
+   public int combatSwapWeapon() {
+   
+      if (inventory.swapWeapon() == 1) {
+         System.out.println("[ ! ! ! ]   No secondary weapon!");
+         return -1;
+      }
+      return speed;
+   }
+//--------------------------------------------------------------------------
+   public int combatUseItem() {
+   
+      int itemCount = inventory.itemCount();
+      int enemyCount = CombatArena.countEnemies();
+      
+      if (itemCount == 0) {
+         System.out.println("[ ! ! ! ]   No items!");
+         return -1;
+      }
+      
+      System.out.println("[ ? ? ? ]   Choose an item: ");
+      inventory.itemListPrint();
+      System.out.println(" " + (itemCount+1) + ": Forget it.");
+      
+      int itemGet = getUserInt(itemCount+1);
+      if (itemGet == itemCount+1)
+         return -1;
+         
+      System.out.println("[ ? ? ? ]   Choose a target: ");
+      CombatArena.listEnemies();
+      System.out.println(" " + (enemyCount+1) + ": " + name + " " + getHP() );
+      
+      int enemyGet = getUserInt(enemyCount+1);
+      Fightable target = CombatArena.getEnemy(enemyGet);
+      return inventory.useItem(itemGet, target);
+   }
+//--------------------------------------------------------------------------
+   public int combatFlee() {
+   
+      System.out.println("[ ? ? ? ]   Fleeing combat will result in forfeiting the hallway.");
+      System.out.println("            Are you sure you want to flee?");
+      System.out.println(" 1. Yes\n 2. No");
+      int choice = getUserInt(2);
+      if (choice == 1) {
+         CombatArena.flee();
+         return 0;
+      }
+      return -1;
+   }
+//--------------------------------------------------------------------------
 }

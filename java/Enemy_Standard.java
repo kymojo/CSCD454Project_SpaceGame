@@ -9,7 +9,6 @@ public class Enemy_Standard extends Enemy {
    public Enemy_Standard() {
    
       name = "Standard Enemy";
-      description = "A generic enemy for testing purposes";
       
       healthMax = 10;
       health = healthMax;
