@@ -178,7 +178,12 @@ public class Menu
    
    public void credits()
    {
-      System.out.println("***CREDITS***");
+      System.out.println("*******CREDITS*******");
+      System.out.println("*Team Mirificissimus*");
+      System.out.println("*-Daniel Moore      *");
+      System.out.println("*-Kyle Johnson      *");
+      System.out.println("*-Sam Gronhavd      *");
+      System.out.println("*********************");
    }
    public void startGameIntro()
    {

@@ -51,20 +51,22 @@ public class GameMaster
    
    public static void StartGame()
    {
-      Hallway hallway;                                            //Main Hallway that will be used
-      int floor=0;                                                  //Floor tracker
-      RandomHallwayTracker HWTracker = new RandomHallwayTracker();//Hallway tracker
-      Character player;                                           ///This is the players character.
-      Boss boss;                                                  //Boss
       Menu menu=new Menu();                                       //Menu instance
-      FightHelper fightHelper = new FightHelper();                //FightHelper for combat
-      CombatArena arena = CombatArena.getInstance();              //Arena Instance
       
       menu.intro();
       
       int choice;
       do
       {
+         Hallway hallway;                                            //Main Hallway that will be used
+         int floor=0;                                                  //Floor tracker
+         RandomHallwayTracker HWTracker = new RandomHallwayTracker();//Hallway tracker
+         Character player;                                           ///This is the players character.
+         Boss boss;                                                  //Boss
+         //Menu menu=new Menu();                                       //Menu instance
+         FightHelper fightHelper = new FightHelper();                //FightHelper for combat
+         CombatArena arena = CombatArena.getInstance();              //Arena Instance
+      
          choice=menu.mainMenu();
          
          if(choice==1)
@@ -270,6 +272,6 @@ public class GameMaster
          {
             //Quit
          }
-      }while(choice!=3&&choice!=1);
+      }while(choice!=3);
    }
 }
