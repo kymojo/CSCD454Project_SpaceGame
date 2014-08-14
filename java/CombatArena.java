@@ -68,7 +68,8 @@ public class CombatArena {
     */
    public static void clearArena() {
    
-      player.healFully();
+      if (player != null)
+         player.healFully();
       enemies = new ArrayList(1);
       player = null;
       flee = false;
