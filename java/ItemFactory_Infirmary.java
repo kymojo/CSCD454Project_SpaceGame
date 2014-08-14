@@ -23,11 +23,11 @@ public class ItemFactory_Infirmary extends ItemFactory
       }
       else if(name.equals("blaster"))
       {
-         return new Weapon_Blaster(level);
+         return new Weapon_LaserRifle(level);
       }
       else if(name.equals("armor"))
       {
-         return new Armor_LightArmor(level);
+         return new Armor_HeavyArmor(level);
       }
       
       return new Weapon_Spoon(level);
@@ -41,7 +41,7 @@ public class ItemFactory_Infirmary extends ItemFactory
    
    public Item getBossArmor(int level)
    {
-      return new Armor_LightArmor(level);
+      return new Armor_HeavyArmor(level);
    }
    
    public Item getBossItem(int level)

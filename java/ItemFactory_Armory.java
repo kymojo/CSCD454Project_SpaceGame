@@ -30,7 +30,7 @@ public class ItemFactory_Armory extends ItemFactory
          return new FightItem_FragGrenade(level);
       }
       
-       return new Armor_LightArmor(level);
+       return new Armor_Fire(level);
       
    }
    
@@ -41,7 +41,7 @@ public class ItemFactory_Armory extends ItemFactory
    
    public  Item getBossArmor(int level)
    {
-      return new Armor_LightArmor(level);
+      return new Armor_Fire(level);
    }
    
    public Item getBossItem(int level)
