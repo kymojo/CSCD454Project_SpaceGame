@@ -238,7 +238,7 @@ public class Menu
 	   System.out.println("        +         ''''     +");
 	   System.out.println("");
 	   System.out.println("");
-	   System.out.println("  _____                          ______                     _____                       ______     _                 ");
+	   System.out.println(" _____                          ______                     _____                       ______     _                 ");
 	   System.out.println(" |  ___|                         |  ___|                   /  ___|                      | ___ \\   (_)          ");
 	   System.out.println(" | |__ ___  ___ __ _ _ __   ___  | |_ _ __ ___  _ __ ___   \\ `--. _ __   __ _  ___ ___  | |_/ / __ _ ___  ___  _ __ ");
 	   System.out.println(" |  __/ __|/ __/ _` | '_ \\ / _ \\ |  _| '__/ _ \\| '_ ` _ \\   `--. \\ '_ \\ / _` |/ __/ _ \\ |  __/ '__| / __|/ _ \\| '_ \\ ");
