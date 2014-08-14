@@ -10,9 +10,9 @@ public class Inventory {
 
    private Fightable fighter;
    private Weapon[] weapons = new Weapon[2];
-   private Armor armor;
+   private Armor armor = null;
    private ArrayList<Usable> items = new ArrayList(0);
-   
+//--------------------------------------------------------------------------   
    /**
     * Constructor for Inventory
     * 
@@ -22,7 +22,7 @@ public class Inventory {
    
       this.fighter = fighter;
    }
-   
+//--------------------------------------------------------------------------   
    /**
     * General get method for equipped weapon.
     * 
@@ -33,7 +33,7 @@ public class Inventory {
       // Check for null weapon??
       return weapons[0];
    }
-   
+//--------------------------------------------------------------------------   
    /**
     * @return        attack damage for current weapon
     */
@@ -41,7 +41,7 @@ public class Inventory {
    
       return weapons[0].attack();
    }
-   
+//--------------------------------------------------------------------------   
    /**
     * @return        attack time for current weapon
     */
@@ -49,7 +49,7 @@ public class Inventory {
    
       return weapons[0].getAttackTime();
    }
-   
+//--------------------------------------------------------------------------   
    /**
     * Exchange current weapon for secondary weapon. If only one weapon,
     * display error message and return failure value.
@@ -67,7 +67,7 @@ public class Inventory {
       } else
          return 1;
    }
-   
+//--------------------------------------------------------------------------   
    /**
     * General set method for weapon slot.
     * 
@@ -85,7 +85,7 @@ public class Inventory {
    public String weaponMessage() {
       return weapons[0].getMessage();
    }
-   
+//--------------------------------------------------------------------------   
    /**
     * General get method for armor slot.
     * 
@@ -96,15 +96,16 @@ public class Inventory {
    
       return armor;
    }
-   
+//--------------------------------------------------------------------------   
    /**
     * @return        reduced damage from current armor
     */
    public int armorDamage(int dmg) {
-   
+      if (armor == null)
+         return dmg;
       return armor.damageReduce(dmg);
    }
-   
+//--------------------------------------------------------------------------   
    /**
     * General set method for armor slot.
     * 
@@ -118,7 +119,7 @@ public class Inventory {
       
       return dump;
    }
-   
+//--------------------------------------------------------------------------   
    public void setItem(Usable it) {
       int index = hasItem(it);
       if (index == -1)
@@ -126,7 +127,7 @@ public class Inventory {
       else
          items.get(index).addUses(it.getUses());
    }
-   
+//--------------------------------------------------------------------------   
    public int hasItem(Usable it) {
    
       int i = 0;
@@ -137,16 +138,16 @@ public class Inventory {
       }
       return -1;
    }
-   
+//--------------------------------------------------------------------------   
    public void dropItem(Usable it) {
       items.remove(items.indexOf(it));
    }
-   
+//--------------------------------------------------------------------------   
    public int itemCount() {
    
       return items.size();
    }
-   
+//--------------------------------------------------------------------------   
    public void itemListPrint() {
    
       int i = 1;
@@ -156,7 +157,7 @@ public class Inventory {
          i++;
       }
    }
-   
+//--------------------------------------------------------------------------   
    public int useItem(int index, Fightable target) {
       Usable it = items.get(index-1);
       System.out.println("[ . . . ]   " + fighter.getName() + it.getMessage());
@@ -165,4 +166,5 @@ public class Inventory {
          dropItem(it);
       return it.getTime();
    }
+//--------------------------------------------------------------------------   
 }

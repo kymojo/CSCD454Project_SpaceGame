@@ -15,6 +15,16 @@ public abstract class Fightable {
    //private Status status[];
    protected CombatTimer clock;
 //--------------------------------------------------------------------------
+   public Fightable(String name, int hp, int spd) {
+   
+      this.name = name;
+      healthMax = hp;
+      health = healthMax;
+      inventory = new Inventory(this);
+      speed = spd;
+      clock = new CombatTimer(this);
+   }
+//--------------------------------------------------------------------------
    /**
     * @return        fighter name
     */
@@ -87,6 +97,13 @@ public abstract class Fightable {
          health = healthMax;
       }
       System.out.println("[ HEAL! ]   "+name+" healed " + h + "hp!");
+   }
+//--------------------------------------------------------------------------
+   /**
+    * 
+    */
+   public void healFully() {
+      health = healthMax;
    }
 //--------------------------------------------------------------------------
    /**

@@ -6,5 +6,18 @@
 
 public abstract class Enemy extends Fightable {
    
-   public abstract int combat();
+   
+   public Enemy(String name, int hp, int spd) {
+      super(name, hp, spd);
+   }
+//--------------------------------------------------------------------------
+   public int combat() {
+   
+      int time = 0;
+      
+      attack(CombatArena.getPlayer());
+      time = inventory.getWeapon()/* THIS IS A PROBLEM */.getAttackTime();
+      return time;
+   }
+//--------------------------------------------------------------------------
 }

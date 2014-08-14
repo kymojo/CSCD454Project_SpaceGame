@@ -17,18 +17,15 @@ public class Character extends Fightable {
     */
    public Character() {
       
+      super(null,30, 3);
+      name = getPlayerName();
+      inventory.setWeapon(new Weapon_Blaster(1), 1);
+   }
+//--------------------------------------------------------------------------
+   public String getPlayerName() {
+   
       System.out.print("[ ? ? ? ]   Input player name:\n > ");
-      name = userInput.nextLine();
-      
-      healthMax = 100;
-      health = healthMax;
-      
-      inventory = new Inventory(this);
-      inventory.setWeapon(new Weapon_Basic(), 1);
-      inventory.setArmor(new Armor_Basic());
-      
-      speed = 3;
-      clock = new CombatTimer(this);
+      return userInput.nextLine();
    }
 //--------------------------------------------------------------------------
    /**
@@ -160,7 +157,7 @@ public class Character extends Fightable {
       int choice = getUserInt(2);
       if (choice == 1) {
          CombatArena.flee();
-         return 0;
+         return speed;
       }
       return -1;
    }

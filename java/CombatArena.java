@@ -64,11 +64,11 @@ public class CombatArena {
    }
 //--------------------------------------------------------------------------
    /**
-    * Removes all fighters from the arena.
+    * Heal the player and remove all fighters from the arena.
     */
    public static void clearArena() {
    
-      
+      player.healFully();
       enemies = new ArrayList(1);
       player = null;
       flee = false;
@@ -95,6 +95,7 @@ public class CombatArena {
    public static int combatSteps() {
       
       int done = checkVictory();
+      System.out.println("----[ THE FIGHT BEGINS!!! ]----\n");
       
       while( done == 0 ) {
          
@@ -106,6 +107,7 @@ public class CombatArena {
       }
       
       clearArena();
+      System.out.println("----[ THE FIGHT CONCLUDES ]----\n");
       return done;
    }
 //--------------------------------------------------------------------------
