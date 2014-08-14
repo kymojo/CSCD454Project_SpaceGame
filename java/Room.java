@@ -68,8 +68,10 @@ public class Room
       {
          if(this.ItemList[i]!=null)
          {
-            tempItemList[j]=this.ItemList[i];   // YOUR ARE HERE
+            tempItemList[j]=this.ItemList[i];
+            j++; 
          }
+         
       }
       
       this.ItemList = tempItemList;

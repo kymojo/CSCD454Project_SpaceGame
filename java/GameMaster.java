@@ -105,22 +105,17 @@ public class GameMaster
                             tempItemList = hallway.getItemListCertainRoom(roomNum);
                             int index=menu.collectItemsText(tempItemList);
                             
-                            if(index==tempItemList.length+1)
+                            if(index+1==tempItemList.length+1)
                             {
                               //no items picked up
                               flagy = false;
                             }
                             else
                             {
-                              hallway.getItemCertainRoom(roomNum,index);
+                              hallway.getItemCertainRoom(roomNum,index); // GETTING ITEMS
                             }
                          }while(flagy);
                      }
-                     //Collect Room Items
-                     
-                     //check if there is items in the room.
-                     
-                     //collect items
                   }
                   
                   
@@ -135,14 +130,14 @@ public class GameMaster
                             tempItemList = hallway.getItemListCertainRoom(roomNum);
                             int index=menu.collectItemsText(tempItemList);
                             
-                            if(index+2==tempItemList.length+1)
+                            if(index+1==tempItemList.length+1)
                             {
                               //no items picked up
                               flagyy = false;
                             }
                             else
                             {
-                              hallway.getItemCertainRoom(roomNum,index);
+                              hallway.getItemCertainRoom(roomNum,index); // GETTING ITEMS
                             }
                          }while(flagyy);
                      }
@@ -170,12 +165,38 @@ public class GameMaster
                   roomNum++;
                }
             
-            }while(floor<5);
+            }while(floor<3);
+            floor++;
             
+            //Boss Fight
             if(floor==4)
             {
                //Boss FIght
-               System.out.println("Boss Fight");
+               //System.out.println("********Boss Fight");
+               int CombatOutcome = -1;
+               menu.bossText();
+               Enemy Boss = new Enemy_Prisoner();
+               
+               CombatArena.addCombatant(player);
+               CombatArena.addCombatant(Boss);
+                CombatOutcome = CombatArena.combatSteps();
+                
+               if(CombatOutcome==1)
+               {
+                  //Victory
+                  menu.winText();
+               }
+               else if(CombatOutcome==2)
+               {
+                  //Died
+                  menu.diedText();
+               }
+               else if(CombatOutcome==3)
+               {
+                  //Flee
+                  menu.fleeDiedText();
+                  menu.diedText();
+               }
             }
          }
          else if(choice==2)

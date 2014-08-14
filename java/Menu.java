@@ -14,6 +14,30 @@ public class Menu
 	   startGameIntro();
    }
    
+   public void bossText()
+   {
+      System.out.println("  As you walk up the stairs to the 4th floor that has all the escape pods");
+      System.out.println("you see a massive prisoner with blood soaked cloths, you reconize him from");
+      System.out.println("the cell next to yours you two never got alone and how its time to see who");
+      System.out.println("is the strongest!!! ITS ON!!!\n");
+      
+   }
+   
+   public void winText()
+   {
+      System.out.println(" You killed the most deadly prisoner! you find 1 last escape pod you run to");
+      System.out.println("get inside and then you take off. Your future looks bright and your options");
+      System.out.println("are endless! Good Job, for you learned how to ESCAPE FROM SPACE PRISON.");
+   }
+   
+   public void fleeDiedText()
+   {
+      System.out.println("  You turn on your heels and make a run for the escape pods before the massive");
+      System.out.println("prisoner gets to it, right when you get inside and about to close the door a");
+      System.out.println("frag granade lands inside the pod and the door shuts and you got shot into space");
+      System.out.println("As look at the granade you feel like you should have tried and kill him first...");
+   }
+   
    public int mainMenu()
    {
 	   int menuSelect = 9999999;
@@ -56,7 +80,7 @@ public class Menu
        {
          System.out.println((i+1)+": "+items[i].getName());
        }
-       System.out.println("Quit:");
+       System.out.println(items.length+1+": Quit");
        
          int menuSelect = 9999999;
          boolean flagx = true;
@@ -83,7 +107,7 @@ public class Menu
             else if(j+2==menuSelect)
             {
                flagx=false;
-               System.out.println("exit");
+               System.out.println("--Back to Rooms--");
             }
          }
          
