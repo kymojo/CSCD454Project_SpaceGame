@@ -1,5 +1,7 @@
 /**
- * A generic, concrete Enemy for testing purposes.
+ * The prisoner is the basic enemy found in the prison. These
+ * guys are almost identical to the starting player, but with
+ * less health.
  *
  * @author  Kyle Johnson
  */
@@ -8,7 +10,7 @@ public class Enemy_Prisoner extends Enemy {
 
    public Enemy_Prisoner() {
    
-      super("Prisoner", 10, 5);
-      inventory.setWeapon(new Weapon_Basic(), 1);
+      super("Prisoner", 10, 3);
+      inventory.setWeapon(new Weapon_Blaster(1), 1);
    }
 }

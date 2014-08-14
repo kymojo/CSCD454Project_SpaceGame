@@ -16,7 +16,7 @@ public abstract class Enemy extends Fightable {
       int time = 0;
       
       attack(CombatArena.getPlayer());
-      time = inventory.getWeapon()/* THIS IS A PROBLEM */.getAttackTime();
+      time = inventory.weaponAttackTime();
       return time;
    }
 //--------------------------------------------------------------------------

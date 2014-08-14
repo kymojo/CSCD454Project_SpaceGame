@@ -37,4 +37,9 @@ public abstract class Weapon extends Item{
    public int getAttackTime() {
       return this.attackTime;
    }
+   
+   public void weaponDescription(String descrip) {
+      description = (descrip + "\n DMG - " + damage + "\n SPD - "
+                     + attackTime + "\n ACC - " + (accuracy*100) + "%");
+   }
 }

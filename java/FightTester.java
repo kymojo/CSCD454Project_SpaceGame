@@ -15,10 +15,12 @@ public class FightTester {
       CombatArena.addCombatant(player);
       CombatArena.addCombatant(enemy);
       CombatArena.addCombatant(enemy2);
-      player.getInventory().setItem(new FightItem_FragGrenade(1));
-      player.getInventory().setItem(new HealthItem_Apple(1));
-      player.getInventory().setItem(new HealthItem_Apple(1));
-      player.getInventory().setItem(new HealthItem_HealthPack(2));
+      System.out.println(player.giveItem(new FightItem_FragGrenade(1)));
+      System.out.println(player.giveItem(new HealthItem_Apple(1)));
+      System.out.println(player.giveItem(new HealthItem_Apple(1)));
+      System.out.println(player.giveItem(new HealthItem_HealthPack(2)));
+      System.out.println(player.giveItem(new Weapon_HeavyBlaster(2)));
+      System.out.println(player.giveItem(new Weapon_Knife(2)));
       CombatArena.combatSteps();
    }
 }

@@ -13,8 +13,7 @@ public abstract class Item
       return this.message;
    }
    
-   public String getDescription()
-   {
+   public String getDescription() {
 		return this.description;
    }
 }

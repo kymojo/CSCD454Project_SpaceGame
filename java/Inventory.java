@@ -30,8 +30,12 @@ public class Inventory {
     */
    public Weapon getWeapon() {
    
-      // Check for null weapon??
       return weapons[0];
+   }
+//--------------------------------------------------------------------------   
+   public String weaponName() {
+   
+      return weapons[0].getName();
    }
 //--------------------------------------------------------------------------   
    /**
@@ -58,11 +62,10 @@ public class Inventory {
     */
    public int swapWeapon() {
    
-      if (weapons[1] != null) {
+      if (hasSecondaryWeapon()) {
          Weapon temp = weapons[0];
          weapons[0] = weapons[1];
          weapons[1] = temp;
-         System.out.println(weapons[0].getName()+" swapped for "+weapons[1].getName());
          return 0;
       } else
          return 1;
@@ -81,11 +84,27 @@ public class Inventory {
       weapons[slot-1] = w;     
       return dump;
    }
-   
+//-------------------------------------------------------------------------- 
    public String weaponMessage() {
       return weapons[0].getMessage();
    }
-//--------------------------------------------------------------------------   
+//--------------------------------------------------------------------------
+   public boolean hasSecondaryWeapon() {
+   
+      if (weapons[1] == null)
+         return false;
+      return true;
+   }
+//--------------------------------------------------------------------------
+   public String weaponList() {
+      String result = "";
+      result += "1. " + weapons[0].getName();
+      if (hasSecondaryWeapon())
+         result += "\n2. " + weapons[1].getName();
+      return result;
+   }
+
+//--------------------------------------------------------------------------
    /**
     * General get method for armor slot.
     * 
