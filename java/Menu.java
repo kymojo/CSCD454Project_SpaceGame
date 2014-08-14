@@ -81,6 +81,7 @@ public class Menu
           for(int i=0;i<items.length;i++)
           {
             System.out.println((i+1)+": "+items[i].getName());
+            System.out.println("--"+items[i].getDescription());
           }
           System.out.println(items.length+1+": Quit");
           
@@ -208,7 +209,7 @@ public class Menu
 	   System.out.println("|   |_____________|_|_|_|_|_|_|_|_|_|_____________|   |");
 	   System.out.println("|  /                                               \\  |");
 	   System.out.println("| /                                                 \\ |");
-	   System.out.println("|/                                                lc \\|");
+	   System.out.println("|/                                                   \\|");
 	   System.out.println(".");
 	   System.out.println(".");
 	   System.out.print("   You have been in cell AC34 for 20 years. Days seem like months and months seem like years, it all blends together\nas you try to");
@@ -243,7 +244,7 @@ public class Menu
 	   System.out.println("        +         ''''     +");
 	   System.out.println("");
 	   System.out.println("");
-	   System.out.println(" _____                          ______                     _____                       ______     _                 ");
+	   System.out.println("  _____                          ______                     _____                       ______     _                 ");
 	   System.out.println(" |  ___|                         |  ___|                   /  ___|                      | ___ \\   (_)          ");
 	   System.out.println(" | |__ ___  ___ __ _ _ __   ___  | |_ _ __ ___  _ __ ___   \\ `--. _ __   __ _  ___ ___  | |_/ / __ _ ___  ___  _ __ ");
 	   System.out.println(" |  __/ __|/ __/ _` | '_ \\ / _ \\ |  _| '__/ _ \\| '_ ` _ \\   `--. \\ '_ \\ / _` |/ __/ _ \\ |  __/ '__| / __|/ _ \\| '_ \\ ");

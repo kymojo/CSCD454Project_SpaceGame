@@ -71,7 +71,6 @@ public class GameMaster
          Character player;                                           ///This is the players character.
          Boss boss;                                                  //Boss
          //Menu menu=new Menu();                                       //Menu instance
-         FightHelper fightHelper = new FightHelper();                //FightHelper for combat
          CombatArena arena = CombatArena.getInstance();              //Arena Instance
 
          choice=menu.mainMenu();
