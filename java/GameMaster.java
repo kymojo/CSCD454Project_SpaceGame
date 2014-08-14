@@ -261,6 +261,7 @@ public class GameMaster
                   menu.diedText();
                }
             }
+            System.out.println("");
          }
          else if(choice==2)
          {

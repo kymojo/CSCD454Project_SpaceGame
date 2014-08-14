@@ -184,6 +184,7 @@ public class Menu
       System.out.println("*-Kyle Johnson      *");
       System.out.println("*-Sam Gronhavd      *");
       System.out.println("*********************");
+      System.out.println("");
    }
    public void startGameIntro()
    {
