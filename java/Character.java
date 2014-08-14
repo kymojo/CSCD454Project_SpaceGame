@@ -17,7 +17,7 @@ public class Character extends Fightable {
     */
    public Character() {
       
-      super(null, 30, 3);
+      super(null, 100, 3);
       name = getPlayerName();
       inventory.setWeapon(new Weapon_Blaster(1), 1);
    }

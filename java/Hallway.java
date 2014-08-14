@@ -5,7 +5,6 @@ public class Hallway
 	protected String type;
 	protected RoomFactory factory;
    
-   
    public Hallway(String type, int floor)
    {
       this.floor = floor;
@@ -43,6 +42,16 @@ public class Hallway
    public void getHallwayDescription()
    {
       System.out.println(this.theHallway[0].getDescription());
+   }
+   
+   public Item getBossWeaponCertainRoom()
+   {
+      return this.theHallway[0].giveBossWeapon();
+   }
+   
+   public Item getBossArmorCertainRoom()
+   {
+      return this.theHallway[0].giveBossArmor();
    }
    
    public Enemy[] getEnemyListCertainRoom(int x)

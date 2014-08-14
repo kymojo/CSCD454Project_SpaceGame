@@ -5,6 +5,8 @@ public class Room
    protected String Description;
    protected String Type;
    protected int floor;
+   public Item bossWeapon;
+   public Item  bossArmor;
 
 
    public void MakeDescription()
@@ -13,6 +15,15 @@ public class Room
 	   
    }
 
+   public Item giveBossWeapon()
+   {
+      return this.bossWeapon;
+   }
+   
+   public Item giveBossArmor()
+   {
+      return this.bossArmor;
+   }
    //Make Items for the rooms
    public void MakeItems()
    {

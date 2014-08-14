@@ -1,4 +1,4 @@
-
+import java.util.*;
 
 public class GameMaster 
 {
@@ -16,12 +16,46 @@ public class GameMaster
       //Test_RandomHallwayTracker();
    }
    
+   public static void Test_Hallway()
+   {
+	   String type = "Armory";
+	   int floor = 1;
+			      
+	   Hallway hallway = new Hallway(type,floor);
+	   
+	   System.out.println(hallway.Test_theHallway());
+	   
+   }
+   
+   public static void Test_Menu()
+   {
+	   Menu menu=new Menu();
+	   
+	   //menu.StartMenu();
+   }
+   
+   public static void Test_RandomHallwayTracker()
+   {
+      RandomHallwayTracker HWTracker = new RandomHallwayTracker();
+      
+      System.out.println(HWTracker.randomHallway());
+      System.out.println(HWTracker.randomHallway());
+      System.out.println(HWTracker.randomHallway());
+      System.out.println(HWTracker.randomHallway());
+      System.out.println(HWTracker.randomHallway());
+      System.out.println(HWTracker.randomHallway());
+      System.out.println(HWTracker.randomHallway());
+      System.out.println(HWTracker.randomHallway());
+      System.out.println(HWTracker.randomHallway());
+   }
+   
    public static void StartGame()
    {
       Hallway hallway;                                            //Main Hallway that will be used
       int floor=0;                                                  //Floor tracker
       RandomHallwayTracker HWTracker = new RandomHallwayTracker();//Hallway tracker
-      Character player;                                           //This is the players character.
+      Character player;                                           ///This is the players character.
+      Boss boss;                                                  //Boss
       Menu menu=new Menu();                                       //Menu instance
       FightHelper fightHelper = new FightHelper();                //FightHelper for combat
       CombatArena arena = CombatArena.getInstance();              //Arena Instance
@@ -31,14 +65,13 @@ public class GameMaster
       int choice;
       do
       {
-         
          choice=menu.mainMenu();
          
          if(choice==1)
          {
             //Start Game
             player = new Character();
-            
+            boss = new Boss();
             menu.startGameIntro();
             
             //Hallway
@@ -53,22 +86,48 @@ public class GameMaster
                
                int HWchoice=menu.pickHallway();
                String HWtype="***ERROR***";
+               String bHWone="***ERROR***";
+               String bHWtwo="***ERROR***";
                
                if(HWchoice==1)
                {
                   HWtype = FirstHW;
+                  bHWone = SecondHW;
+                  bHWtwo = ThirdHW;
                }
                else if(HWchoice==2)
                {
                   HWtype = SecondHW;
+                  bHWone = FirstHW;
+                  bHWtwo = ThirdHW;
                }
                else if(HWchoice==3)
                {
                   HWtype = ThirdHW;
+                  bHWone = SecondHW;
+                  bHWtwo = FirstHW;
                }
             
                hallway = new Hallway(HWtype,floor);
+               Hallway bossHWone  = new Hallway(bHWone,floor);
+               Hallway bossHWtwo  = new Hallway(bHWtwo,floor);
             
+               //Items for boss applied
+               Random rand = new Random();
+               int  n = rand.nextInt(2);
+               
+               if(n==0)
+               {
+                  boss.setWeaponBoss(bossHWone.getBossWeaponCertainRoom());
+                  boss.setArmorBoss(bossHWone.getBossArmorCertainRoom());
+               }
+               else if(n==1)
+               {
+                  boss.setWeaponBoss(bossHWtwo.getBossWeaponCertainRoom());
+                  boss.setArmorBoss(bossHWtwo.getBossArmorCertainRoom());
+               }
+               //
+               
                hallway.getHallwayDescription();
                
                menu.pressEnterContinue();
@@ -110,14 +169,17 @@ public class GameMaster
                               //no items picked up
                               flagy = false;
                             }
+                            else if(index==-1)
+                            {
+                              flagy = false;
+                            }
                             else
                             {
-                              hallway.getItemCertainRoom(roomNum,index); // GETTING ITEMS
+                              player.giveItem(hallway.getItemCertainRoom(roomNum,index)); // GETTING ITEMS
                             }
                          }while(flagy);
                      }
                   }
-                  
                   
                   if(CombatOutcome==1)
                   {
@@ -135,9 +197,13 @@ public class GameMaster
                               //no items picked up
                               flagyy = false;
                             }
+                            else if(index==-1)
+                            {
+                              flagyy = false;
+                            }
                             else
                             {
-                              hallway.getItemCertainRoom(roomNum,index); // GETTING ITEMS
+                              player.giveItem(hallway.getItemCertainRoom(roomNum,index)); // GETTING ITEMS
                             }
                          }while(flagyy);
                      }
@@ -156,10 +222,6 @@ public class GameMaster
                      roomNum=4;
                      flag=false;
                   }
-                  
-                  
-                  
-                  
                   //******
                   //Iteration
                   roomNum++;
@@ -175,10 +237,9 @@ public class GameMaster
                //System.out.println("********Boss Fight");
                int CombatOutcome = -1;
                menu.bossText();
-               Enemy Boss = new Enemy_Prisoner();
                
                CombatArena.addCombatant(player);
-               CombatArena.addCombatant(Boss);
+               CombatArena.addCombatant(boss);
                 CombatOutcome = CombatArena.combatSteps();
                 
                if(CombatOutcome==1)
@@ -210,44 +271,5 @@ public class GameMaster
             //Quit
          }
       }while(choice!=3&&choice!=1);
-   }
-   
-   public static void ResetGame()
-   {
-      //Reset all things 
-      //Go thru menu again.
-   }
-   
-   public static void Test_Hallway()
-   {
-	   String type = "Armory";
-	   int floor = 1;
-			      
-	   Hallway hallway = new Hallway(type,floor);
-	   
-	   System.out.println(hallway.Test_theHallway());
-	   
-   }
-   
-   public static void Test_Menu()
-   {
-	   Menu menu=new Menu();
-	   
-	   //menu.StartMenu();
-   }
-   
-   public static void Test_RandomHallwayTracker()
-   {
-      RandomHallwayTracker HWTracker = new RandomHallwayTracker();
-      
-      System.out.println(HWTracker.randomHallway());
-      System.out.println(HWTracker.randomHallway());
-      System.out.println(HWTracker.randomHallway());
-      System.out.println(HWTracker.randomHallway());
-      System.out.println(HWTracker.randomHallway());
-      System.out.println(HWTracker.randomHallway());
-      System.out.println(HWTracker.randomHallway());
-      System.out.println(HWTracker.randomHallway());
-      System.out.println(HWTracker.randomHallway());
    }
 }

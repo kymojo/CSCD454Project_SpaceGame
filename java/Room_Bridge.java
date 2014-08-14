@@ -28,6 +28,8 @@ public class Room_Bridge extends Room
       }
       
       this.ItemList = newItems;
+      this.bossWeapon = factory.getBossWeapon(this.floor);
+      this.bossArmor  = factory.getBossArmor(this.floor);
    }
    
    @Override

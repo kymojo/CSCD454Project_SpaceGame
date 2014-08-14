@@ -29,6 +29,8 @@ public class Room_Armory extends Room
       }
       
       this.ItemList = newItems;
+      this.bossWeapon = factory.getBossWeapon(this.floor);
+      this.bossArmor  = factory.getBossArmor(this.floor);
    }
    
    @Override

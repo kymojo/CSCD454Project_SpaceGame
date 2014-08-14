@@ -73,48 +73,55 @@ public class Menu
    
    public int collectItemsText(Item[] items)
    {
-       int index;
-       System.out.println("*Do you want to get any items?");
-                         
-       for(int i=0;i<items.length;i++)
-       {
-         System.out.println((i+1)+": "+items[i].getName());
-       }
-       System.out.println(items.length+1+": Quit");
-       
-         int menuSelect = 9999999;
-         boolean flagx = true;
-   	   do{
-   	   System.out.println("Pick 1-"+(items.length+1));
-   	   System.out.print("Selection: ");
-   	   if(this.sc.hasNextInt())
-   	   {
-   		   menuSelect = this.sc.nextInt(); 
-   	   }
-   	   else
-   	   {
-   		   clearBuffer = this.sc.nextLine();
-   	   }
-         
-   	   System.out.println(".");
-         
-         for(int j=0;j<items.length;j++)
-         {
-            if(j+1==menuSelect)
+      if(items.length>0)
+      {
+          int index;
+          System.out.println("*Do you want to get any items?");
+                            
+          for(int i=0;i<items.length;i++)
+          {
+            System.out.println((i+1)+": "+items[i].getName());
+          }
+          System.out.println(items.length+1+": Quit");
+          
+            int menuSelect = 9999999;
+            boolean flagx = true;
+      	   do{
+      	   System.out.println("Pick 1-"+(items.length+1));
+      	   System.out.print("Selection: ");
+      	   if(this.sc.hasNextInt())
+      	   {
+      		   menuSelect = this.sc.nextInt(); 
+      	   }
+      	   else
+      	   {
+      		   clearBuffer = this.sc.nextLine();
+      	   }
+            
+      	   System.out.println(".");
+            
+            for(int j=0;j<items.length;j++)
             {
-               flagx=false;
+               if(j+1==menuSelect)
+               {
+                  flagx=false;
+               }
+               else if(j+2==menuSelect)
+               {
+                  flagx=false;
+                  System.out.println("--Back to Rooms--");
+               }
             }
-            else if(j+2==menuSelect)
-            {
-               flagx=false;
-               System.out.println("--Back to Rooms--");
-            }
+            
+      	   }while(flagx);
+      	   clearBuffer = this.sc.nextLine();
+            
+      	   return menuSelect-1;
          }
-         
-   	   }while(flagx);
-   	   clearBuffer = this.sc.nextLine();
-         
-   	   return menuSelect-1;
+         else
+         {
+            return -1;
+         }
    }
    
    public int pickHallway()

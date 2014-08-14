@@ -28,6 +28,8 @@ public class Room_Cafeteria extends Room
       }
       
       this.ItemList = newItems;
+      this.bossWeapon = factory.getBossWeapon(this.floor);
+      this.bossArmor  = factory.getBossArmor(this.floor);
    }
    
    @Override

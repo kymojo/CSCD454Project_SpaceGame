@@ -1,32 +1,19 @@
 public class Boss extends Enemy
 {
-   public Boss() 
+   public Boss()
    {
-   
-      name = "The Boss";
-      
-      healthMax = 10;
-      health = healthMax;
-      
-      inventory = new Inventory(this);
-      //inventory.setWeapon(new Weapon_Basic(), 1);
-      //inventory.setArmor(new Armor_Basic());
-      
-      speed = 5;
-      clock = new CombatTimer(this);
+      super("The Massive Prisoner", 50, 3);
    }
-   public void setWeapon(Weapon w)
-   {
-      //this.inventory.setWeapon(new w,1);
-   }
-   public int combat() 
-   {
    
-      int time = 0;
-      
-      
-      attack(CombatArena.getPlayer());
-      time = inventory.getWeapon()/* THIS IS A PROBLEM */.getAttackTime();
-      return time;
+   public void setWeaponBoss(Item w)
+   {
+      Weapon ww = (Weapon) w;
+      inventory.setWeapon(ww,1);
+   }
+   
+   public void setArmorBoss(Item a)
+   {
+      Armor aa = (Armor) a;
+      inventory.setArmor(aa);
    }
 }

@@ -31,6 +31,8 @@ public class Room_DockingBay extends Room
       }
       
       this.ItemList = newItems;
+      this.bossWeapon = factory.getBossWeapon(this.floor);
+      this.bossArmor  = factory.getBossArmor(this.floor);
    }
    
    @Override
@@ -49,6 +51,7 @@ public class Room_DockingBay extends Room
       }
       
       this.EnemyList = newEnemies;
+      
    }
 
 }
