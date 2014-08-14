@@ -46,6 +46,53 @@ public class Menu
       System.out.println("****************");
       System.out.println("*As you gasp for your last breath, you wonder can any one ESCAPE FROM SPACE PRISON?!?!");
    }
+   
+   public int collectItemsText(Item[] items)
+   {
+       int index;
+       System.out.println("*Do you want to get any items?");
+                         
+       for(int i=0;i<items.length;i++)
+       {
+         System.out.println((i+1)+": "+items[i].getName());
+       }
+       System.out.println("Quit:");
+       
+         int menuSelect = 9999999;
+         boolean flagx = true;
+   	   do{
+   	   System.out.println("Pick 1-"+(items.length+1));
+   	   System.out.print("Selection: ");
+   	   if(this.sc.hasNextInt())
+   	   {
+   		   menuSelect = this.sc.nextInt(); 
+   	   }
+   	   else
+   	   {
+   		   clearBuffer = this.sc.nextLine();
+   	   }
+         
+   	   System.out.println(".");
+         
+         for(int j=0;j<items.length;j++)
+         {
+            if(j+1==menuSelect)
+            {
+               flagx=false;
+            }
+            else if(j+2==menuSelect)
+            {
+               flagx=false;
+               System.out.println("exit");
+            }
+         }
+         
+   	   }while(flagx);
+   	   clearBuffer = this.sc.nextLine();
+         
+   	   return menuSelect-1;
+   }
+   
    public int pickHallway()
    {
 	   int menuSelect = 9999999;

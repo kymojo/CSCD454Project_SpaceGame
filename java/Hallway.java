@@ -65,6 +65,21 @@ public class Hallway
       return this.theHallway[x-1].hasEnemy();
    }
    
+   public boolean hasItemCertainRoom(int x)
+   {
+      return this.theHallway[x-1].hasItem();
+   }
+   
+   public Item getItemCertainRoom(int x,int index)
+   {
+      return this.theHallway[x-1].getItem(index);
+   }
+   
+   public Item[] getItemListCertainRoom(int x)
+   {
+      return this.theHallway[x-1].getItemList();
+   }
+   
    public String Test_theHallway()
    {
 	   String StringReturn = "";

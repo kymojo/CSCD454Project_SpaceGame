@@ -71,6 +71,8 @@ public class Room
             tempItemList[j]=this.ItemList[i];   // YOUR ARE HERE
          }
       }
+      
+      this.ItemList = tempItemList;
       return item;
    }
    
@@ -100,6 +102,19 @@ public class Room
          return false;
       }
    }
+   
+   public boolean hasItem()
+   {
+      if(ItemList.length>0)
+      {
+         return true;
+      }
+      else
+      {
+         return false;
+      }
+   }
+   
    public void whatsInRoom(int x)
    {
       System.out.println("*Room: "+x+"*");

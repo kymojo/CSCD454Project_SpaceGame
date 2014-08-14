@@ -75,7 +75,8 @@ public class GameMaster
                
                //Room
                boolean flag =true;
-               int roomNum  =1; 
+               int roomNum  =1;
+               Item[] tempItemList; 
                while(flag&&roomNum<4)
                {
                   hallway.whatsInACertainRoom(roomNum);
@@ -96,6 +97,25 @@ public class GameMaster
                   else
                   {
                      //Skip Combat
+                     boolean flagy = true;
+                     if(hallway.hasItemCertainRoom(roomNum))
+                     {
+                         //hallway.whatsInACertainRoom(roomNum);
+                         do{
+                            tempItemList = hallway.getItemListCertainRoom(roomNum);
+                            int index=menu.collectItemsText(tempItemList);
+                            
+                            if(index==tempItemList.length+1)
+                            {
+                              //no items picked up
+                              flagy = false;
+                            }
+                            else
+                            {
+                              hallway.getItemCertainRoom(roomNum,index);
+                            }
+                         }while(flagy);
+                     }
                      //Collect Room Items
                      
                      //check if there is items in the room.
@@ -107,7 +127,25 @@ public class GameMaster
                   if(CombatOutcome==1)
                   {
                      //Victory
-                     //Collect Room Items
+                     boolean flagyy = true;
+                     if(hallway.hasItemCertainRoom(roomNum))
+                     {
+                         //hallway.whatsInACertainRoom(roomNum);
+                         do{
+                            tempItemList = hallway.getItemListCertainRoom(roomNum);
+                            int index=menu.collectItemsText(tempItemList);
+                            
+                            if(index+2==tempItemList.length+1)
+                            {
+                              //no items picked up
+                              flagyy = false;
+                            }
+                            else
+                            {
+                              hallway.getItemCertainRoom(roomNum,index);
+                            }
+                         }while(flagyy);
+                     }
                   }
                   else if(CombatOutcome==2)
                   {

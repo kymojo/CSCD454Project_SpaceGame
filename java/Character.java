@@ -160,7 +160,7 @@ public class Character extends Fightable {
       int choice = getUserInt(2);
       if (choice == 1) {
          CombatArena.flee();
-         return speed;
+         return 0;
       }
       return -1;
    }
