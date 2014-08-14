@@ -183,7 +183,7 @@ public class Character extends Fightable {
             return null;
          } else {
             System.out.println("Which weapon to give up?");
-            System.out.println(inventory.weaponList() + "\n3. Forget it"); 
+            System.out.println(inventory.weaponList() + "\n3. " + item.getName()); 
             int choice = getUserInt(3);
             switch (choice) {
                case 1: return inventory.setWeapon( (Weapon) item, 1);
